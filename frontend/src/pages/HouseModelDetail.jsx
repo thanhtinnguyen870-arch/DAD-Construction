@@ -61,10 +61,10 @@ const HouseModelDetail = () => {
               
               {allImages.length > 1 && (
                 <>
-                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all z-10">
                     <ChevronLeft size={24} />
                   </button>
-                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all z-10">
                     <ChevronRight size={24} />
                   </button>
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -89,7 +89,7 @@ const HouseModelDetail = () => {
               <h3 className="text-2xl font-bold text-secondary mb-4 border-b pb-2">Công Năng Sử Dụng</h3>
               <div className="bg-light p-6 rounded-sm border border-gray-100 mb-8">
                 <p className="text-gray-700 whitespace-pre-wrap">
-                  {model.functions || '- Tầng 1: Phòng khách, Phòng bếp + ăn, 1 Phòng ngủ, 1 WC chung.\n- Tầng 2: 2 Phòng ngủ (1 Master), 1 Phòng thờ, Sân phơi, Ban cùng.'}
+                  {model.functions || '- Tầng 1: Phòng khách, Phòng bếp + ăn, 1 Phòng ngủ, 1 WC chung.\n- Tầng 2: 2 Phòng ngủ (1 Master), 1 Phòng thờ, Sân phơi, Ban công.'}
                 </p>
               </div>
             </div>

@@ -52,10 +52,10 @@ const ProjectDetail = () => {
               
               {allImages.length > 1 && (
                 <>
-                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all z-10">
                     <ChevronLeft size={24} />
                   </button>
-                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all z-10">
                     <ChevronRight size={24} />
                   </button>
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
