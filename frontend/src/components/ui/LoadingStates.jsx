@@ -72,7 +72,7 @@ export const SmoothImage = ({ className = '', eager = false, fallbackSrc, src, a
           setLoaded(true);
         }
       }}
-      className={`${className} transition-[opacity,transform] duration-700 ease-out ${loaded || failed ? 'opacity-100' : 'opacity-30'}`}
+      className={`${className} ${!loaded && !failed ? 'animate-pulse bg-gray-200' : ''}`}
     />
   );
 };

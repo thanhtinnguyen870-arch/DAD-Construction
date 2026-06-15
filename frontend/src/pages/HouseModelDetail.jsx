@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Maximize, Layers, DollarSign, Home as HomeIcon, CheckCircle, Ruler } from 'lucide-react';
+import { ArrowLeft, Maximize, Layers, DollarSign, Home as HomeIcon, CheckCircle, Ruler, ChevronLeft, ChevronRight } from 'lucide-react';
 import api from '../services/api';
 import { DetailSkeleton, SmoothImage } from '../components/ui/LoadingStates';
 import fallbackHouseImage from '../assets/hero.png';
@@ -10,6 +10,7 @@ const HouseModelDetail = () => {
   const { slug } = useParams();
   const [model, setModel] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchModel = async () => {
@@ -32,6 +33,12 @@ const HouseModelDetail = () => {
   if (!model) return <div className="text-center py-40">Không tìm thấy mẫu nhà này</div>;
 
   const thumbnail = model.thumbnail?.trim() || fallbackHouseImage;
+  const allImages = thumbnail 
+    ? [thumbnail, ...(model.images || [])] 
+    : (model.images?.length ? model.images : [fallbackHouseImage]);
+
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
 
   return (
     <div className="pt-24 pb-16 bg-white min-h-screen">
@@ -49,8 +56,28 @@ const HouseModelDetail = () => {
               <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-bold rounded-sm">{model.style || 'Hiện đại'}</span>
             </div>
             
-            <div className="w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden mb-8 shadow-md bg-gray-200">
-              <SmoothImage src={thumbnail} fallbackSrc={fallbackHouseImage} alt={model.title} className="w-full h-full object-cover" eager />
+            <div className="relative w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden mb-8 shadow-md bg-gray-200 group">
+              <SmoothImage src={allImages[currentImageIndex]} fallbackSrc={fallbackHouseImage} alt={model.title} className="w-full h-full object-cover" eager />
+              
+              {allImages.length > 1 && (
+                <>
+                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                    <ChevronRight size={24} />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {allImages.map((_, idx) => (
+                      <button 
+                        key={idx} 
+                        onClick={() => setCurrentImageIndex(idx)} 
+                        className={`w-2.5 h-2.5 rounded-full transition-all shadow-sm ${idx === currentImageIndex ? 'bg-primary scale-125' : 'bg-white/70 hover:bg-white'}`} 
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
             
             <div className="prose max-w-none prose-lg">

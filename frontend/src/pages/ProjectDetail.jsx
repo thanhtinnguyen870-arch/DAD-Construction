@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MapPin, Maximize, Layers, DollarSign, Calendar, ArrowLeft } from 'lucide-react';
+import { MapPin, Maximize, Layers, DollarSign, Calendar, ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
 import api from '../services/api';
 import { DetailSkeleton, SmoothImage } from '../components/ui/LoadingStates';
 
@@ -10,6 +10,7 @@ const ProjectDetail = () => {
   const { slug } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -28,6 +29,13 @@ const ProjectDetail = () => {
   if (loading) return <DetailSkeleton />;
   if (!project) return <div className="text-center py-40">Không tìm thấy dự án</div>;
 
+  const allImages = project.thumbnail 
+    ? [project.thumbnail, ...(project.images || [])] 
+    : (project.images?.length ? project.images : [fallbackImage]);
+
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+
   return (
     <div className="pt-24 pb-16 bg-white min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
@@ -39,8 +47,28 @@ const ProjectDetail = () => {
           {/* Main Content */}
           <div className="lg:w-2/3">
             <h1 className="text-3xl md:text-5xl font-bold text-secondary mb-6">{project.title}</h1>
-            <div className="w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden mb-8 bg-gray-200">
-              <SmoothImage src={project.thumbnail || fallbackImage} fallbackSrc={fallbackImage} alt={project.title} className="w-full h-full object-cover" eager />
+            <div className="relative w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden mb-8 bg-gray-200 group">
+              <SmoothImage src={allImages[currentImageIndex]} fallbackSrc={fallbackImage} alt={project.title} className="w-full h-full object-cover" eager />
+              
+              {allImages.length > 1 && (
+                <>
+                  <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10">
+                    <ChevronRight size={24} />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {allImages.map((_, idx) => (
+                      <button 
+                        key={idx} 
+                        onClick={() => setCurrentImageIndex(idx)} 
+                        className={`w-2.5 h-2.5 rounded-full transition-all shadow-sm ${idx === currentImageIndex ? 'bg-primary scale-125' : 'bg-white/70 hover:bg-white'}`} 
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
             
             <div className="prose max-w-none prose-lg">
