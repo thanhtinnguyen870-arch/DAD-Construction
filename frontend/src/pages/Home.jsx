@@ -174,21 +174,24 @@ const Home = () => {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((project) => (
-              <motion.div key={project.title} {...fadeInUp} className="group cursor-pointer overflow-hidden rounded-sm bg-white shadow-lg">
+              <motion.div key={project.title} {...fadeInUp} className="group overflow-hidden rounded-sm bg-white shadow-lg relative">
+                <Link to="/du-an" className="absolute inset-0 z-10">
+                  <span className="sr-only">Xem chi tiết {project.title}</span>
+                </Link>
                 <div className="relative h-64 overflow-hidden bg-gray-200">
                   <SmoothImage src={project.image} fallbackSrc={fallbackProjectImage} alt={project.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute right-4 top-4 rounded-sm bg-primary px-3 py-1 text-xs font-bold text-white">Đã hoàn thành</div>
+                    <div className="absolute right-4 top-4 rounded-sm bg-primary px-3 py-1 text-xs font-bold text-white z-20">Đã hoàn thành</div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 relative z-0">
                   <div className="mb-2 text-sm font-medium text-gray-500">{project.meta}</div>
                   <h3 className="mb-4 text-xl font-bold text-secondary transition-colors group-hover:text-primary">{project.title}</h3>
                   <div className="mb-4 flex items-center justify-between text-sm text-gray-600">
                     <span className="flex items-center gap-1"><Maximize size={16} /> {project.area}</span>
                     <span className="flex items-center gap-1"><Clock size={16} /> {project.time}</span>
                   </div>
-                  <Link to="/du-an" className="inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-secondary">
+                  <span className="inline-flex items-center gap-1 font-medium text-primary transition-colors group-hover:text-secondary">
                     Xem chi tiết <ChevronRight size={16} />
-                  </Link>
+                  </span>
                 </div>
               </motion.div>
             ))}

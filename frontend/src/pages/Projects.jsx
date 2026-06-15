@@ -46,23 +46,26 @@ const Projects = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 content-fade-in">
             {projects.map((project) => (
-              <div key={project._id} className="bg-white rounded-sm overflow-hidden shadow-lg group cursor-pointer">
+              <div key={project._id} className="bg-white rounded-sm overflow-hidden shadow-lg group relative">
+                <Link to={`/du-an/${project.slug}`} className="absolute inset-0 z-10">
+                  <span className="sr-only">Xem chi tiết {project.title}</span>
+                </Link>
                 <div className="relative h-64 overflow-hidden bg-gray-200">
                   <SmoothImage src={project.thumbnail || fallbackImage} fallbackSrc={fallbackImage} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-sm">
+                  <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-sm z-20">
                     {project.status}
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 relative z-0">
                   <div className="text-sm text-gray-500 mb-2 font-medium">{project.category} • {project.location}</div>
                   <h3 className="text-xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
                   <div className="flex items-center justify-between text-gray-600 text-sm mb-4">
                     <span className="flex items-center gap-1"><Maximize size={16} /> {project.area}</span>
                     <span className="flex items-center gap-1"><Clock size={16} /> {project.floors} Tầng</span>
                   </div>
-                  <Link to={`/du-an/${project.slug}`} className="inline-flex items-center gap-1 text-primary font-medium hover:text-secondary transition-colors">
+                  <span className="inline-flex items-center gap-1 text-primary font-medium group-hover:text-secondary transition-colors">
                     Xem chi tiết <ChevronRight size={16} />
-                  </Link>
+                  </span>
                 </div>
               </div>
             ))}
