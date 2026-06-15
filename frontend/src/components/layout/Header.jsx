@@ -37,11 +37,7 @@ const Header = () => {
             >
               {link.name}
               {isActive(link.path) && (
-                <motion.span
-                  layoutId="public-nav-active"
-                  className="absolute inset-x-1 -bottom-0.5 h-0.5 rounded-full bg-primary"
-                  transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-                />
+                <span className="absolute inset-x-1 -bottom-0.5 h-0.5 rounded-full bg-primary" />
               )}
             </Link>
           ))}
