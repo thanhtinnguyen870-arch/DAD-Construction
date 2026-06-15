@@ -22,11 +22,11 @@ const Header = () => {
   return (
     <header className="fixed top-0 z-50 w-full bg-white/95 py-3 shadow-md backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2 rounded-sm">
-          <img src="/logo.jpg" alt="DAD Construction" className="h-16 w-auto rounded-sm object-contain" />
+        <Link to="/" className="flex items-center gap-2 rounded-sm shrink-0 mr-4 lg:mr-8 xl:mr-12">
+          <img src="/logo.jpg" alt="DAD Construction" className="h-12 w-auto md:h-14 lg:h-16 rounded-sm object-contain" />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-4 xl:gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}

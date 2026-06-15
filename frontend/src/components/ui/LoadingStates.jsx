@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export const PageLoader = ({ label = 'Đang tải dữ liệu...' }) => (
   <div className="flex min-h-[360px] flex-col items-center justify-center gap-4 text-gray-500">
@@ -48,6 +48,7 @@ export const SmoothImage = ({ className = '', eager = false, fallbackSrc, src, a
   const [loaded, setLoaded] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     setLoaded(false);
@@ -55,8 +56,15 @@ export const SmoothImage = ({ className = '', eager = false, fallbackSrc, src, a
     setCurrentSrc(src);
   }, [src]);
 
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setLoaded(true);
+    }
+  }, [currentSrc]);
+
   return (
     <img
+      ref={imgRef}
       {...props}
       src={currentSrc}
       alt={alt}
