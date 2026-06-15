@@ -14,8 +14,8 @@ const User = require('./models/User');
 
 connectDB().then(async () => {
   try {
-    const adminExists = await User.findOne({ email: 'admin@dadcons.com' });
-    if (!adminExists) {
+    const adminUser = await User.findOne({ email: 'admin@dadcons.com' });
+    if (!adminUser) {
       await User.create({
         name: 'Admin DAD',
         email: 'admin@dadcons.com',
@@ -23,9 +23,13 @@ connectDB().then(async () => {
         role: 'admin'
       });
       console.log('Default admin account created automatically.');
+    } else {
+      adminUser.password = 'password123';
+      await adminUser.save();
+      console.log('Default admin password forcefully reset to password123.');
     }
   } catch (error) {
-    console.error('Failed to create default admin:', error.message);
+    console.error('Failed to create or reset default admin:', error.message);
   }
 });
 
