@@ -10,7 +10,24 @@ const consultationRoutes = require('./routes/consultationRoutes');
 const companyInfoRoutes = require('./routes/companyInfoRoutes');
 
 dotenv.config();
-connectDB();
+const User = require('./models/User');
+
+connectDB().then(async () => {
+  try {
+    const adminExists = await User.findOne({ email: 'admin@dadcons.com' });
+    if (!adminExists) {
+      await User.create({
+        name: 'Admin DAD',
+        email: 'admin@dadcons.com',
+        password: 'password123',
+        role: 'admin'
+      });
+      console.log('Default admin account created automatically.');
+    }
+  } catch (error) {
+    console.error('Failed to create default admin:', error.message);
+  }
+});
 
 const app = express();
 
