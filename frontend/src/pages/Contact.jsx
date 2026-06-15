@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import api from '../services/api';
 
 const Contact = () => {
@@ -74,7 +74,7 @@ const Contact = () => {
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-light flex items-center justify-center text-primary shrink-0">
-                    <Facebook size={24} />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                   </div>
                   <div>
                     <p className="font-bold text-secondary mb-1">Fanpage Facebook</p>
