@@ -39,7 +39,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="pt-24 pb-16 bg-light min-h-screen">
+    <div className="pt-36 pb-16 bg-light min-h-screen">
       {/* Banner */}
       <div className="relative h-[300px] flex items-center justify-center mb-16">
         <div className="absolute inset-0">

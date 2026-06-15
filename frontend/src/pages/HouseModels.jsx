@@ -33,7 +33,7 @@ const HouseModels = () => {
     : models.filter(m => m.type?.toLowerCase() === filter.toLowerCase());
 
   return (
-    <div className="pt-24 pb-16 bg-light min-h-screen">
+    <div className="pt-36 pb-16 bg-light min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h1 className="text-3xl font-bold text-secondary mb-6 sm:text-4xl md:text-5xl">Mẫu Nhà Đẹp Tham Khảo</h1>

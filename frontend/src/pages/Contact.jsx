@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Facebook } from 'lucide-react';
 import api from '../services/api';
 
 const Contact = () => {
@@ -23,7 +23,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-24 pb-16 bg-light min-h-screen">
+    <div className="pt-36 pb-16 bg-light min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="mx-auto mb-6 max-w-xs text-2xl font-bold text-secondary sm:max-w-none sm:text-4xl md:text-5xl">Liên Hệ Với Chúng Tôi</h1>
@@ -70,6 +70,17 @@ const Contact = () => {
                   <div>
                     <p className="font-bold text-secondary mb-1">Giờ làm việc</p>
                     <p className="text-gray-600">Thứ 2 - Thứ 7: 8:00 - 17:30</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-light flex items-center justify-center text-primary shrink-0">
+                    <Facebook size={24} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-secondary mb-1">Fanpage Facebook</p>
+                    <a href="https://www.facebook.com/dadcons.arc" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors font-medium">
+                      DAD Construction
+                    </a>
                   </div>
                 </li>
               </ul>

@@ -9,6 +9,7 @@ const fallbackImage = 'https://images.unsplash.com/photo-1600607688969-a5bfcd64b
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('Tất cả');
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -24,8 +25,14 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
+  const filteredProjects = filter === 'Tất cả'
+    ? projects
+    : filter === 'Đang thi công' 
+      ? projects.filter(p => p.status === 'Đang thi công')
+      : projects.filter(p => p.category?.toLowerCase().includes(filter.toLowerCase()));
+
   return (
-    <div className="pt-24 pb-16 bg-light min-h-screen">
+    <div className="pt-36 pb-16 bg-light min-h-screen">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-3xl font-bold text-secondary mb-6 sm:text-4xl md:text-5xl">Dự Án Đã Thực Hiện</h1>
@@ -34,9 +41,13 @@ const Projects = () => {
 
         {/* Filter - basic UI */}
         <div className="flex flex-wrap gap-4 justify-center mb-12">
-          {['Tất cả', 'Nhà phố', 'Biệt thự', 'Nhà cấp 4', 'Đang thi công'].map((filter, i) => (
-            <button key={i} className={`px-6 py-2 rounded-full font-medium transition-colors ${i === 0 ? 'bg-primary text-white' : 'bg-white text-gray-600 hover:bg-gray-100'}`}>
-              {filter}
+          {['Tất cả', 'Nhà phố', 'Biệt thự', 'Nhà cấp 4', 'Đang thi công'].map((f, i) => (
+            <button 
+              key={i} 
+              onClick={() => setFilter(f)}
+              className={`px-6 py-2 rounded-full font-medium transition-colors ${filter === f ? 'bg-primary text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100 shadow-sm border border-gray-100'}`}
+            >
+              {f}
             </button>
           ))}
         </div>
@@ -45,7 +56,7 @@ const Projects = () => {
           <CardGridSkeleton />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 content-fade-in">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <div key={project._id} className="bg-white rounded-sm overflow-hidden shadow-lg group relative">
                 <Link to={`/du-an/${project.slug}`} className="absolute inset-0 z-10">
                   <span className="sr-only">Xem chi tiết {project.title}</span>
