@@ -80,7 +80,7 @@ export const SmoothImage = ({ className = '', eager = false, fallbackSrc, src, a
           setLoaded(true);
         }
       }}
-      className={`${className} ${!loaded && !failed ? 'animate-pulse bg-gray-200' : ''}`}
+      className={`${className} ${!loaded && !failed ? 'bg-gray-200 text-transparent' : ''} transition-all duration-300`}
     />
   );
 };
