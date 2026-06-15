@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+mobile-*.png
+.DS_Store
+Thumbs.db

@@ -1,0 +1,51 @@
+import fallbackHouseImage from '../assets/hero.png';
+
+const fallbackHouseModels = [
+  {
+    _id: 'fallback-house-model-1',
+    title: 'Mẫu nhà phố 5x20m hiện đại',
+    slug: 'mau-nha-pho-5x20m-hien-dai',
+    type: 'Nhà phố',
+    style: 'Hiện đại',
+    area: '100m2',
+    width: '5m',
+    length: '20m',
+    floors: 2,
+    bedrooms: 3,
+    estimatedBuildCost: '1.2 tỷ',
+    thumbnail: fallbackHouseImage,
+    description: 'Mẫu nhà phố hiện đại tối ưu công năng, phù hợp gia đình trẻ cần không gian sống tiện nghi và chi phí hợp lý.',
+  },
+  {
+    _id: 'fallback-house-model-2',
+    title: 'Mẫu cấp 4 mái Nhật',
+    slug: 'mau-cap-4-mai-nhat',
+    type: 'Nhà cấp 4',
+    style: 'Tối giản',
+    area: '120m2',
+    width: '8m',
+    length: '15m',
+    floors: 1,
+    bedrooms: 3,
+    estimatedBuildCost: '800 triệu',
+    thumbnail: fallbackHouseImage,
+    description: 'Thiết kế cấp 4 mái Nhật gọn gàng, thoáng sáng, dễ thi công và phù hợp với nhiều khu đất gia đình.',
+  },
+  {
+    _id: 'fallback-house-model-3',
+    title: 'Mẫu biệt thự sân vườn 2 tầng',
+    slug: 'mau-biet-thu-san-vuon-2-tang',
+    type: 'Biệt thự',
+    style: 'Sang trọng',
+    area: '240m2',
+    width: '12m',
+    length: '20m',
+    floors: 2,
+    bedrooms: 4,
+    estimatedBuildCost: '2.6 tỷ',
+    thumbnail: fallbackHouseImage,
+    description: 'Biệt thự sân vườn 2 tầng với bố cục rộng rãi, nhiều khoảng mở và điểm nhấn kiến trúc hiện đại.',
+  },
+];
+
+export default fallbackHouseModels;
