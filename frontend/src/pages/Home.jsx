@@ -58,7 +58,7 @@ const Home = () => {
         </div>
 
         <div className="container relative z-10 mx-auto mt-16 px-4 text-center text-white md:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mx-auto max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mx-auto max-w-4xl">
             <h1 className="mb-7 text-3xl font-bold leading-[1.18] drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] sm:text-4xl md:text-6xl md:leading-[1.14] lg:text-7xl lg:leading-[1.12]">
               Thiết Kế & Thi Công
               <span className="mt-3 block text-primary md:mt-4">Nhà Ở Trọn Gói</span>
