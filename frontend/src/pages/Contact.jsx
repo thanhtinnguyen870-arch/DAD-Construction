@@ -78,7 +78,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-secondary mb-1">Fanpage Facebook</p>
-                    <a href="https://www.facebook.com/dadcons.arc" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors font-medium">
+                    <a href="https://www.facebook.com/dadcons.arc" target="_blank" rel="noopener noreferrer" className="text-[#1877F2] hover:text-blue-800 transition-colors font-bold underline underline-offset-4 flex items-center gap-1">
                       DAD Construction
                     </a>
                   </div>
