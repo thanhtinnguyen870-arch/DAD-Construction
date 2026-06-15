@@ -57,7 +57,7 @@ const HouseModelDetail = () => {
             </div>
             
             <div className="relative w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden mb-8 shadow-md bg-gray-200 group">
-              <SmoothImage src={allImages[currentImageIndex]} fallbackSrc={fallbackHouseImage} alt={model.title} className="w-full h-full object-cover" eager />
+              <SmoothImage src={allImages[currentImageIndex]} fallbackSrc={fallbackHouseImage} alt={model.title} className="w-full h-full object-contain" eager />
               
               {allImages.length > 1 && (
                 <>
