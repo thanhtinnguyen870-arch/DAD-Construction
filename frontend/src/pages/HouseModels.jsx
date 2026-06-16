@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Maximize, DollarSign, ChevronRight, Layers } from 'lucide-react';
+import { Maximize, DollarSign, ChevronRight, Layers, LayoutGrid } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { CardGridSkeleton, SmoothImage } from '../components/ui/LoadingStates';
@@ -28,9 +28,9 @@ const HouseModels = () => {
 
   const filterOptions = ['Tất cả', 'Biệt thự', 'Nhà mái thái', 'Nhà cấp 4', 'Nhà phố'];
 
-  const filteredModels = filter === 'Tất cả' 
-    ? models 
-    : models.filter(m => m.type?.toLowerCase() === filter.toLowerCase());
+  const filteredModels = filter === 'Tất cả'
+    ? models
+    : models.filter((m) => m.type?.trim().toLowerCase() === filter.trim().toLowerCase());
 
   return (
     <div className="pt-36 pb-16 bg-light min-h-screen">
@@ -55,63 +55,82 @@ const HouseModels = () => {
 
         {loading ? (
           <CardGridSkeleton />
+        ) : filteredModels.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-20 text-gray-400">
+            <LayoutGrid size={56} className="mb-4 opacity-40" />
+            <p className="text-lg font-semibold">Không tìm thấy mẫu nhà</p>
+            <p className="mt-1 text-sm">Danh mục "{filter}" chưa có mẫu nào. Thử chọn danh mục khác.</p>
+            <button
+              onClick={() => setFilter('Tất cả')}
+              className="mt-5 rounded-sm bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-yellow-600"
+            >
+              Xem tất cả mẫu nhà
+            </button>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 content-fade-in">
             {filteredModels.map((model) => {
               const thumbnail = model.thumbnail?.trim() || fallbackHouseImage;
-
               return (
-              <div key={model._id} className="bg-white rounded-sm overflow-hidden shadow-lg group">
-                <Link to={`/mau-nha/${model.slug}`} className="block relative h-64 overflow-hidden bg-gray-200">
-                  <SmoothImage 
-                    src={thumbnail}
-                    fallbackSrc={fallbackHouseImage}
-                    alt={model.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                  />
-                  <div className="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-sm shadow-md">
-                    {model.type}
-                  </div>
-                </Link>
-                
-                <div className="p-6">
-                  <Link to={`/mau-nha/${model.slug}`}>
-                    <h3 className="text-xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors line-clamp-1">{model.title}</h3>
+                <div key={model._id} className="group overflow-hidden rounded-sm bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <Link to={`/mau-nha/${model.slug}`} className="block relative h-64 overflow-hidden bg-gray-200">
+                    <SmoothImage
+                      src={thumbnail}
+                      fallbackSrc={fallbackHouseImage}
+                      alt={model.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-sm shadow-md">
+                      {model.type}
+                    </div>
                   </Link>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0"><Maximize size={16} /></div>
-                      <span className="text-sm font-medium">{model.area || 'Đang cập nhật'}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0"><Layers size={16} /></div>
-                      <span className="text-sm font-medium">{model.floors ? `${model.floors} Tầng` : '1 Tầng'}</span>
-                    </div>
-                    <div className="col-span-2 flex items-center gap-2 text-gray-800">
-                      <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0"><DollarSign size={16} /></div>
-                      <span className="text-sm">Giá hoàn thiện: <span className="font-bold text-primary">{model.estimatedBuildCost || 'Liên hệ'}</span></span>
-                    </div>
-                  </div>
-                  
-                  <div className="border-t border-gray-100 pt-4 flex justify-between items-center">
-                    <Link to="/lien-he" className="text-gray-500 hover:text-secondary text-sm font-medium transition-colors">
-                      Nhận bản vẽ
+
+                  <div className="p-6">
+                    <Link to={`/mau-nha/${model.slug}`}>
+                      <h3 className="text-xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors line-clamp-1">
+                        {model.title}
+                      </h3>
                     </Link>
-                    <Link to="/lien-he" className="inline-flex items-center gap-1 text-primary font-bold hover:text-yellow-600 transition-colors">
-                      Báo giá chi tiết <ChevronRight size={16} />
-                    </Link>
+
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0">
+                          <Maximize size={16} />
+                        </div>
+                        <span className="text-sm font-medium">{model.area || 'Đang cập nhật'}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0">
+                          <Layers size={16} />
+                        </div>
+                        <span className="text-sm font-medium">{model.floors ? `${model.floors} tầng` : '1 tầng'}</span>
+                      </div>
+                      <div className="col-span-2 flex items-center gap-2 text-gray-800">
+                        <div className="w-8 h-8 rounded-full bg-light flex items-center justify-center text-primary shrink-0">
+                          <DollarSign size={16} />
+                        </div>
+                        <span className="text-sm">
+                          Giá hoàn thiện:{' '}
+                          <span className="font-bold text-primary">{model.estimatedBuildCost || 'Liên hệ'}</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+                      <Link to="/lien-he" className="text-sm font-medium text-gray-500 transition-colors hover:text-secondary">
+                        Nhận bản vẽ
+                      </Link>
+                      <Link
+                        to="/lien-he"
+                        className="inline-flex items-center gap-1 font-bold text-primary transition-colors hover:text-yellow-600"
+                      >
+                        Báo giá chi tiết <ChevronRight size={16} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
               );
             })}
-            
-            {filteredModels.length === 0 && (
-              <div className="col-span-full text-center py-16 text-gray-500">
-                Không tìm thấy mẫu nhà nào thuộc danh mục "{filter}".
-              </div>
-            )}
           </div>
         )}
       </div>

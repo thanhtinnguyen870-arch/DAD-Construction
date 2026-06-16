@@ -16,20 +16,19 @@ connectDB().then(async () => {
   try {
     const adminUser = await User.findOne({ email: 'admin@dadcons.com' });
     if (!adminUser) {
+      const defaultPassword = process.env.DEFAULT_ADMIN_PASSWORD || 'DADcons@2025!';
       await User.create({
         name: 'Admin DAD',
         email: 'admin@dadcons.com',
-        password: 'password123',
+        password: defaultPassword,
         role: 'admin'
       });
-      console.log('Default admin account created automatically.');
+      console.log('Default admin account created. Please change the password immediately.');
     } else {
-      adminUser.password = 'password123';
-      await adminUser.save();
-      console.log('Default admin password forcefully reset to password123.');
+      console.log('Admin account already exists. Startup complete.');
     }
   } catch (error) {
-    console.error('Failed to create or reset default admin:', error.message);
+    console.error('Failed to initialize admin account:', error.message);
   }
 });
 
