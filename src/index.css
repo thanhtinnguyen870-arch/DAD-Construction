@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Warm Light Tone Gradient for Hero: Blends warm light yellow, soft cream, and clean white */
+  .hero-gradient-light {
+    background: linear-gradient(
+      115deg, 
+      rgba(253, 251, 247, 0.94) 0%, 
+      rgba(251, 247, 238, 0.88) 50%, 
+      rgba(255, 253, 246, 0.72) 100%
+    );
+  }
+
+  /* Architectural Light Blueprint Pattern: Soft cream/yellow with light golden architectural grid */
+  .bg-architect-light {
+    background-color: #faf6ed;
+    background-image: radial-gradient(rgba(212, 163, 89, 0.15) 1px, transparent 1px),
+                      linear-gradient(to right, rgba(212, 163, 89, 0.06) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(212, 163, 89, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px, 48px 48px, 48px 48px;
+  }
+
+  /* Subtle Warm Dot Matrix Pattern */
+  .bg-warm-dots {
+    background-color: #fdfbf7;
+    background-image: radial-gradient(rgba(217, 197, 156, 0.22) 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Artisan Micro-Interactions */
+@keyframes phoneRing {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  4%, 12%, 20% { transform: rotate(-14deg) scale(1.1); }
+  8%, 16%, 24% { transform: rotate(14deg) scale(1.1); }
+  28% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes radarWave {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-phone-ring {
+  animation: phoneRing 3.5s ease-in-out infinite;
+}
+
+.animate-float-smooth {
+  animation: floatSmooth 3.2s ease-in-out infinite;
+}
+
+.animate-radar-wave {
+  animation: radarWave 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* 3D Stage Utilities */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}

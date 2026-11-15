@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty TNHH Xây dựng và Kiến trúc DAD | Kiến tạo bền vững - Tạo dựng tương lai</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dad: {
+                            50: '#f0f6fc',
+                            100: '#e0edf8',
+                            200: '#c2dbf1',
+                            500: '#1e62a8',
+                            600: '#154c86',
+                            700: '#0f3b68', // Màu xanh chính từ Logo DAD
+                            800: '#0b2b4c',
+                            900: '#071c33',
+                        },
+                        accent: {
+                            DEFAULT: '#d97706', // Amber 600
+                            light: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0f3b68;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0b2b4c;
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-gradient {
+            background: linear-gradient(105deg, rgba(7, 28, 51, 0.92) 0%, rgba(15, 59, 104, 0.82) 55%, rgba(15, 59, 104, 0.4) 100%);
+        }
+
+        /* Project Card Hover Effect */
+        .project-card:hover .project-img {
+            transform: scale(1.08);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        /* Subtle Blueprint Pattern Background */
+        .bg-blueprint {
+            background-color: #071c33;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px, 40px 40px, 40px 40px;
+        }
+
+        /* Custom Artisan Micro-Interactions */
+        @keyframes phoneRing {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            4%, 12%, 20% { transform: rotate(-14deg) scale(1.1); }
+            8%, 16%, 24% { transform: rotate(14deg) scale(1.1); }
+            28% { transform: rotate(0deg) scale(1); }
+        }
+
+        @keyframes floatSmooth {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes radarWave {
+            0% { transform: scale(0.6); opacity: 0.8; }
+            100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        .animate-phone-ring {
+            animation: phoneRing 3.5s ease-in-out infinite;
+        }
+
+        .animate-float-smooth {
+            animation: floatSmooth 3.2s ease-in-out infinite;
+        }
+
+        .animate-radar-wave {
+            animation: radarWave 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-dad-700 selection:text-white overflow-x-hidden">
+
+    <!-- TOP BAR (ALWAYS DESKTOP) -->
+    <div class="bg-dad-900 text-slate-300 text-xs py-2.5 block border-b border-dad-800">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-amber-500"></i>
+                    Xã Núi Thành, TP. Đà Nẵng
+                </span>
+                <a href="mailto:dadcons.arc@gmail.com" class="flex items-center gap-2 hover:text-white transition">
+                    <i class="fa-solid fa-envelope text-amber-500"></i>
+                    dadcons.arc@gmail.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span class="text-slate-400 italic">"Kiến tạo bền vững - Tạo dựng tương lai"</span>
+                <div class="flex items-center space-x-3 border-l border-dad-700 pl-6">
+                    <a href="#lien-he" class="hover:text-amber-400 transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#lien-he" class="hover:text-amber-400 transition" title="Zalo"><i class="fa-solid fa-comment-dots"></i></a>
+                    <a href="#lien-he" class="hover:text-amber-400 transition" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION (DESKTOP HORIZONTAL) -->
+    <header id="navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo SVG tái tạo chuẩn từ ảnh chụp của Công ty DAD -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg viewBox="0 0 120 120" class="w-full h-full fill-dad-700 group-hover:fill-dad-600 transition-colors">
+                            <!-- Isometric Cube Frame & DAD Monogram -->
+                            <path d="M60 8 L108 35 L60 62 L12 35 Z M60 22 L32 35 L60 50 L88 35 Z" />
+                            <path d="M10 40 L57 67 L57 114 L10 87 Z M22 58 L22 78 L45 91 L45 71 Z" />
+                            <polygon points="18,68 48,85 48,77 18,60" />
+                            <path d="M63 67 L110 40 L110 87 L63 114 Z M75 71 L75 95 L98 82 L98 58 Z" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-start">
+                            <span class="font-heading font-extrabold text-3xl tracking-tight text-dad-700 leading-none">DAD</span>
+                            <span class="text-[10px] font-bold text-dad-700 ml-0.5 -mt-0.5">®</span>
+                        </div>
+                        <span class="font-heading font-bold text-sm tracking-widest text-dad-700 uppercase leading-tight">Construction</span>
+                        <span class="text-[9px] text-dad-600 font-medium tracking-tight inline-block">Kiến tạo bền vững - Tạo dựng tương lai</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-slate-700">
+                    <a href="#trang-chu" class="hover:text-dad-700 transition py-2">Trang chủ</a>
+                    <a href="#du-an" class="hover:text-dad-700 transition py-2">Dự án tiêu biểu</a>
+                    <a href="#dich-vu" class="hover:text-dad-700 transition py-2">Dịch vụ</a>
+                    <a href="#quy-trinh" class="hover:text-dad-700 transition py-2">Quy trình</a>
+                    <a href="#du-toan" class="hover:text-dad-700 transition py-2">Dự toán chi phí</a>
+                    <a href="#cam-nhan" class="hover:text-dad-700 transition py-2">Đánh giá</a>
+                    <a href="#hoi-dap" class="hover:text-dad-700 transition py-2">Hỏi đáp</a>
+                    <a href="#lien-he" class="hover:text-dad-700 transition py-2">Liên hệ</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Toggle -->
+                <div class="flex items-center space-x-3">
+                    <a href="tel:0778236311" class="hidden sm:flex items-center gap-2.5 bg-dad-700 hover:bg-dad-800 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-md shadow-dad-700/20 transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-phone-volume animate-pulse text-amber-400"></i>
+                        <span>077 823 6311</span>
+                    </a>
+                    
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition" aria-label="Mở menu điều hướng">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu" class="hidden lg:hidden py-4 border-t border-slate-100 space-y-2">
+                <a href="#trang-chu" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Trang chủ</a>
+                <a href="#du-an" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Dự án tiêu biểu</a>
+                <a href="#dich-vu" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Dịch vụ</a>
+                <a href="#quy-trinh" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Quy trình</a>
+                <a href="#du-toan" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Dự toán chi phí</a>
+                <a href="#cam-nhan" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Đánh giá khách hàng</a>
+                <a href="#hoi-dap" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Câu hỏi thường gặp</a>
+                <a href="#lien-he" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-dad-50 hover:text-dad-700">Liên hệ báo giá</a>
+                <div class="pt-2">
+                    <a href="tel:0778236311" class="w-full flex items-center justify-center gap-2 bg-dad-700 text-white py-3 rounded-xl font-bold text-sm">
+                        <i class="fa-solid fa-phone text-amber-400"></i> Gọi hotline: 077 823 6311
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (2-COLUMN DESKTOP) -->
+    <section id="trang-chu" class="relative min-h-[640px] flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=85" 
+                 alt="Kiến trúc biệt thự hiện đại DAD" 
+                 class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+                 onerror="this.src='https://placehold.co/1920x1080/0f3b68/ffffff?text=DAD+Construction'">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-16 lg:py-24 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-7 text-white space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium text-amber-300">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                        Công ty TNHH Xây dựng và Kiến trúc DAD
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                        Kiến Tạo <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Bền Vững</span><br>
+                        Tạo Dựng Tương Lai
+                    </h1>
+                    
+                    <p class="text-slate-200 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+                        Chúng tôi chuyên tư vấn thiết kế kiến trúc, nội thất và thi công trọn gói các công trình nhà phố, biệt thự, văn phòng & thương mại tại Đà Nẵng và khu vực miền Trung với chất lượng vượt trội và thẩm mỹ tinh tế.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#du-an" class="inline-flex justify-center items-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 py-4 rounded-xl shadow-lg shadow-amber-500/30 transition transform hover:-translate-y-0.5">
+                            <span>Khám phá Dự án đã làm</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#du-toan" class="inline-flex justify-center items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-semibold px-7 py-4 rounded-xl transition">
+                            <i class="fa-solid fa-calculator text-amber-400"></i>
+                            <span>Dự toán chi phí xây dựng</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/15 max-w-lg">
+                        <div>
+                            <div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">120+</div>
+                            <div class="text-xs sm:text-sm text-slate-300">Công trình hoàn thiện</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-extrabold text-2xl sm:text-3xl text-amber-400">100%</div>
+                            <div class="text-xs sm:text-sm text-slate-300">Đúng tiến độ cam kết</div>
+                        </div>
+                        <div>
+                            <div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">10 Năm</div>
+                            <div class="text-xs sm:text-sm text-slate-300">Bảo hành kết cấu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Showcase Card -->
+                <div class="lg:col-span-5 block">
+                    <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-2xl relative">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-5">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" 
+                                 alt="Dự án nổi bật DAD" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/800x600/0f3b68/ffffff?text=Biet+Thu+DAD'">
+                            <div class="absolute top-3 left-3 bg-dad-700/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-lg">
+                                <i class="fa-solid fa-star text-amber-400 mr-1"></i> Dự án tiêu biểu 2026
+                            </div>
+                        </div>
+                        <div class="text-white">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="font-heading font-bold text-xl">Biệt Thự Nghỉ Dưỡng Núi Thành</h3>
+                                    <p class="text-slate-300 text-xs"><i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Xã Núi Thành, TP. Đà Nẵng</p>
+                                </div>
+                                <span class="bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs px-2.5 py-1 rounded-md font-semibold">Trọn gói</span>
+                            </div>
+                            <p class="text-xs text-slate-300 line-clamp-2 mb-4">Thiết kế phong cách Tropical Modern kết hợp không gian mở xanh mát, tối ưu ánh sáng và thông gió tự nhiên.</p>
+                            <button onclick="openProjectModal(1)" class="w-full bg-white text-dad-800 hover:bg-amber-400 hover:text-slate-950 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2">
+                                <span>Xem chi tiết hồ sơ công trình</span>
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / DỰ ÁN ĐÃ THỰC HIỆN (3-COLUMN DESKTOP GRID) -->
+    <section id="du-an" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <!-- Section Header -->
+            <div class="flex flex-row items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-3">
+                        <span class="w-8 h-0.5 bg-dad-700"></span>
+                        Tác phẩm kiến trúc của DAD
+                    </div>
+                    <h2 class="font-heading text-5xl font-extrabold text-slate-900 tracking-tight">
+                        Dự Án Đã Thực Hiện
+                    </h2>
+                </div>
+                <p class="text-slate-600 max-w-md text-base">
+                    Mỗi công trình là một dấu ấn riêng biệt, kết tinh giữa tâm huyết của đội ngũ kiến trúc sư DAD và mong muốn của gia chủ.
+                </p>
+            </div>
+
+            <!-- Category Filter Buttons & Search Box -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-2">
+                <div class="flex flex-wrap items-center gap-2.5" id="portfolio-filters">
+                    <button data-filter="all" class="filter-btn active px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition bg-dad-700 text-white shadow-md shadow-dad-700/20">
+                        Tất cả công trình (9)
+                    </button>
+                    <button data-filter="biet-thu" class="filter-btn px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-dad-50 hover:text-dad-700">
+                        Biệt thự & Villa (3)
+                    </button>
+                    <button data-filter="nha-pho" class="filter-btn px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-dad-50 hover:text-dad-700">
+                        Nhà phố hiện đại (3)
+                    </button>
+                    <button data-filter="noi-that" class="filter-btn px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-dad-50 hover:text-dad-700">
+                        Nội thất cao cấp (2)
+                    </button>
+                    <button data-filter="thuong-mai" class="filter-btn px-4 sm:px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-dad-50 hover:text-dad-700">
+                        Thương mại & Cafe (1)
+                    </button>
+                </div>
+
+                <!-- Instant Search Input -->
+                <div class="relative min-w-[240px]">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="project-search-input" oninput="handleProjectSearch(this.value)" placeholder="Tìm kiếm công trình, khu vực..." class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/80">
+                </div>
+            </div>
+
+            <!-- Projects Grid (Responsive: 1 col mobile, 2 col tablet, 3 col desktop) -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamic Content Injected by JavaScript -->
+            </div>
+
+            <!-- Bottom Banner CTA inside Portfolio -->
+            <div class="mt-16 bg-dad-50 border border-dad-100 rounded-3xl p-10 flex flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-dad-700 text-white flex items-center justify-center text-2xl shrink-0 shadow-lg shadow-dad-700/20">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900">Bạn muốn xem bản vẽ kỹ thuật & hồ sơ thực tế?</h3>
+                        <p class="text-slate-600 text-sm mt-1">Liên hệ trực tiếp để nhận bộ Catalogue 50+ mẫu thiết kế nhà đẹp mới nhất của DAD Construction.</p>
+                    </div>
+                </div>
+                <a href="#lien-he" class="shrink-0 bg-dad-700 hover:bg-dad-800 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition whitespace-nowrap">
+                    Nhận mẫu thiết kế miễn phí <i class="fa-solid fa-paper-plane ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE DAD & BRAND IDENTITY -->
+    <section class="py-20 bg-blueprint text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-dad-700/80 border border-dad-500/40 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                        Giá trị cốt lõi
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold leading-tight">
+                        Vì Sao Khách Hàng Tin Chọn <span class="text-amber-400">DAD Construction?</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Tại <strong>Công ty TNHH Xây dựng và Kiến trúc DAD</strong>, chúng tôi không chỉ xây dựng những bức tường bê tông mà còn kiến tạo tổ ấm bền vững theo thời gian. Sự minh bạch về vật tư, chuẩn mực trong kết cấu và sáng tạo trong không gian là kim chỉ nam của chúng tôi.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl font-bold shrink-0">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white text-sm">Hợp đồng minh bạch</div>
+                                <div class="text-xs text-slate-400">Cam kết không phát sinh chi phí</div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl font-bold shrink-0">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white text-sm">Giám sát 24/7</div>
+                                <div class="text-xs text-slate-400">Báo cáo tiến độ hình ảnh mỗi ngày</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
+                        <div class="w-12 h-12 rounded-xl bg-dad-600 flex items-center justify-center text-amber-400 text-xl mb-4">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Thiết Kế Cá Nhân Hóa</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Mỗi bản vẽ 3D được nghiên cứu kỹ lưỡng dựa trên phong thủy, thói quen sinh hoạt và ngân sách thực tế của từng gia chủ.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
+                        <div class="w-12 h-12 rounded-xl bg-dad-600 flex items-center justify-center text-amber-400 text-xl mb-4">
+                            <i class="fa-solid fa-trowel-bricks"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Vật Tư Chính Hãng 100%</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Sử dụng vật liệu xây dựng có nguồn gốc rõ ràng, đạt chuẩn kiểm định chất lượng, đảm bảo tuổi thọ công trình bền bỉ trước khí hậu miền Trung.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
+                        <div class="w-12 h-12 rounded-xl bg-dad-600 flex items-center justify-center text-amber-400 text-xl mb-4">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Chuẩn Xác Tiến Độ</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Áp dụng quy trình quản lý thi công khoa học, bàn giao công trình đúng mốc thời gian đã ký kết với khách hàng.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
+                        <div class="w-12 h-12 rounded-xl bg-dad-600 flex items-center justify-center text-amber-400 text-xl mb-4">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Bảo Hành Tận Tâm</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Bảo hành kết cấu lên đến 10 năm, bảo hành chống thấm và hoàn thiện 2 năm. Hỗ trợ kỹ thuật nhanh chóng trong 24h.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DỊCH VỤ CHUYÊN MÔN (4-COLUMN DESKTOP) -->
+    <section id="dich-vu" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-3">
+                    <span class="w-6 h-0.5 bg-dad-700"></span>
+                    Giải pháp toàn diện
+                    <span class="w-6 h-0.5 bg-dad-700"></span>
+                </div>
+                <h2 class="font-heading text-4xl font-extrabold text-slate-900">
+                    Lĩnh Vực Hoạt Động Của DAD
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Cung cấp chuỗi dịch vụ khép kín từ khâu lên ý tưởng kiến trúc, xin phép xây dựng đến thi công hoàn thiện và lắp đặt nội thất.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-xl hover:border-dad-200 transition group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-dad-50 text-dad-700 group-hover:bg-dad-700 group-hover:text-white transition flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Thiết Kế Kiến Trúc</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Thiết kế mặt bằng công năng, phối cảnh 3D ngoại thất, hồ sơ kết cấu & điện nước (M&E) cho nhà phố, biệt thự, khách sạn.
+                        </p>
+                    </div>
+                    <a href="#lien-he" class="text-dad-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span>Nhận báo giá thiết kế</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-xl hover:border-dad-200 transition group flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase">Phổ biến nhất</div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-dad-50 text-dad-700 group-hover:bg-dad-700 group-hover:text-white transition flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Xây Nhà Trọn Gói</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Giải pháp "Chìa khóa trao tay" từ xin giấy phép, thi công phần thô đến hoàn thiện. Miễn phí 100% chi phí thiết kế khi ký hợp đồng.
+                        </p>
+                    </div>
+                    <a href="#du-toan" class="text-dad-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span>Tính chi phí trọn gói</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-xl hover:border-dad-200 transition group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-dad-50 text-dad-700 group-hover:bg-dad-700 group-hover:text-white transition flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Thiết Kế & Thi Công Nội Thất</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Sản xuất và lắp đặt nội thất gỗ công nghiệp An Cường, gỗ tự nhiên cao cấp mang lại không gian sống sang trọng, đồng bộ.
+                        </p>
+                    </div>
+                    <a href="#lien-he" class="text-dad-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span>Tư vấn nội thất</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:shadow-xl hover:border-dad-200 transition group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-dad-50 text-dad-700 group-hover:bg-dad-700 group-hover:text-white transition flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Cải Tạo & Nâng Cấp</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Khảo sát kết cấu, cải tạo mặt tiền, nâng tầng, chống thấm và làm mới không gian sống cũ thành công trình hiện đại, tiện nghi.
+                        </p>
+                    </div>
+                    <a href="#lien-he" class="text-dad-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span>Đặt lịch khảo sát</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUY TRÌNH LÀM VIỆC (6-COLUMN DESKTOP) -->
+    <section id="quy-trinh" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dad-700 font-bold text-xs uppercase tracking-widest">Chuyên nghiệp & Minh bạch</span>
+                <h2 class="font-heading text-4xl font-extrabold text-slate-900 mt-2">
+                    Quy Trình 6 Bước Tại DAD Construction
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+                <div class="relative p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-heading font-extrabold text-dad-200 mb-3">01</div>
+                    <h4 class="font-heading font-bold text-slate-900 mb-2">Tiếp nhận & Khảo sát</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Lắng nghe nhu cầu, khảo sát địa chất khu đất thực tế và tư vấn sơ bộ.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-heading font-extrabold text-dad-200 mb-3">02</div>
+                    <h4 class="font-heading font-bold text-slate-900 mb-2">Phương án & Báo giá</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Lên mặt bằng công năng 2D tối ưu và lập bảng dự toán chi tiết từng hạng mục.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-heading font-extrabold text-dad-200 mb-3">03</div>
+                    <h4 class="font-heading font-bold text-slate-900 mb-2">Hồ sơ Thiết kế 3D</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Thiết kế phối cảnh 3D, hồ sơ kỹ thuật thi công và hỗ trợ xin phép xây dựng.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-heading font-extrabold text-dad-200 mb-3">04</div>
+                    <h4 class="font-heading font-bold text-slate-900 mb-2">Thi công Phần thô</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Thi công móng, khung bê tông cốt thép chuẩn kỹ thuật dưới sự giám sát chặt chẽ.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-3xl font-heading font-extrabold text-dad-200 mb-3">05</div>
+                    <h4 class="font-heading font-bold text-slate-900 mb-2">Thi công Hoàn thiện</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">Ốp lát, sơn bả, lắp đặt thiết bị điện nước và nội thất sắc nét theo bản vẽ 3D.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-dad-700 text-white shadow-lg shadow-dad-700/20">
+                    <div class="text-3xl font-heading font-extrabold text-amber-400 mb-3">06</div>
+                    <h4 class="font-heading font-bold text-white mb-2">Nghiệm thu & Bảo hành</h4>
+                    <p class="text-xs text-slate-200 leading-relaxed">Vệ sinh công nghiệp, bàn giao chìa khóa và kích hoạt chế độ bảo hành dài hạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÔNG CỤ DỰ TOÁN CHI PHÍ XÂY DỰNG TƯƠNG TÁC (DESKTOP 2-COLUMN) -->
+    <section id="du-toan" class="py-20 bg-dad-50 border-y border-dad-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                <!-- Calculator Form -->
+                <div class="lg:col-span-7 p-6 sm:p-10">
+                    <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-calculator"></i> Công cụ ước tính nhanh
+                    </div>
+                    <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+                        Dự Toán Chi Phí Xây Dựng Sơ Bộ
+                    </h2>
+                    <p class="text-slate-500 text-xs sm:text-sm mb-6">
+                        Nhập thông số diện tích đất và quy mô mong muốn để nhận ước tính ngân sách chi tiết ngay lập tức.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Loại hình công trình</label>
+                                <select id="calc-type" onchange="calculateCost()" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-medium">
+                                    <option value="1">Nhà phố hiện đại</option>
+                                    <option value="1.15">Biệt thự / Villa</option>
+                                    <option value="0.92">Nhà cấp 4 mái Thái / Nhật</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Gói thi công</label>
+                                <select id="calc-package" onchange="calculateCost()" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-medium">
+                                    <option value="6200000">Xây nhà trọn gói - Tiêu chuẩn (6.2 tr/m²)</option>
+                                    <option value="7200000">Xây nhà trọn gói - Cao cấp (7.2 tr/m²)</option>
+                                    <option value="3800000">Thi công phần thô & nhân công (3.8 tr/m²)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Diện tích sàn (m²)</label>
+                                <input type="number" id="calc-area" value="100" min="20" max="1000" oninput="calculateCost()" class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-semibold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Số tầng nổi</label>
+                                <input type="number" id="calc-floors" value="2" min="1" max="10" oninput="calculateCost()" class="w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-semibold">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Loại móng</label>
+                                <select id="calc-foundation" onchange="calculateCost()" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-medium">
+                                    <option value="0.4">Móng cọc (40%)</option>
+                                    <option value="0.5">Móng băng (50%)</option>
+                                    <option value="0.3">Móng đơn (30%)</option>
+                                    <option value="0.65">Móng bè (65%)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Kết cấu mái</label>
+                                <select id="calc-roof" onchange="calculateCost()" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-medium">
+                                    <option value="0.5">Mái bê tông cốt thép (50%)</option>
+                                    <option value="0.7">Mái Nhật / Mái Thái ngói (70%)</option>
+                                    <option value="0.3">Mái Tôn chống nóng (30%)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1.5">Tầng hầm / Bán hầm</label>
+                                <select id="calc-basement" onchange="calculateCost()" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50 font-medium">
+                                    <option value="0">Không có tầng hầm (0%)</option>
+                                    <option value="1.5">Tầng bán hầm sâu &lt; 1.5m (150%)</option>
+                                    <option value="1.7">Tầng hầm sâu 1.5m - 2.0m (170%)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <button onclick="calculateCost()" class="flex-1 bg-dad-700 hover:bg-dad-800 text-white font-bold py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                                <i class="fa-solid fa-rotate"></i>
+                                <span>Cập nhật dự toán</span>
+                            </button>
+                            <button onclick="copyEstimateToClipboard()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition text-xs sm:text-sm flex items-center gap-1.5" title="Sao chép bảng tính">
+                                <i class="fa-solid fa-copy"></i>
+                                <span class="hidden sm:inline">Sao chép</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Result Panel -->
+                <div class="lg:col-span-5 bg-dad-800 text-white p-6 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-dad-600 pb-4 mb-5">
+                            <span class="text-xs uppercase tracking-wider text-slate-300 font-bold">Bảng bóc tách diện tích</span>
+                            <span class="bg-amber-500/20 text-amber-300 text-[11px] px-2.5 py-1 rounded-md font-semibold">Đà Nẵng & Miền Trung</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs sm:text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-300">Diện tích móng:</span>
+                                <span id="res-foundation-area" class="font-bold text-slate-100">40 m²</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-300">Diện tích thân các tầng:</span>
+                                <span id="res-floors-area" class="font-bold text-slate-100">200 m²</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-300">Diện tích mái:</span>
+                                <span id="res-roof-area" class="font-bold text-slate-100">50 m²</span>
+                            </div>
+                            <div id="row-basement" class="hidden flex justify-between items-center text-amber-300">
+                                <span>Diện tích hầm quy đổi:</span>
+                                <span id="res-basement-area" class="font-bold">0 m²</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-dad-700 text-slate-200 font-semibold">
+                                <span>Tổng diện tích xây dựng quy đổi:</span>
+                                <span id="res-total-area" class="font-extrabold text-amber-400 text-base">290 m²</span>
+                            </div>
+                        </div>
+
+                        <!-- Bóc tách chi phí sơ bộ -->
+                        <div class="mt-5 p-4 rounded-2xl bg-dad-900/60 border border-dad-700/60 space-y-2">
+                            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Phân bổ ngân sách dự kiến</div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-300">• Phần thô & nhân công (~58%):</span>
+                                <span id="res-rough-cost" class="font-semibold text-slate-200">--</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-300">• Phần hoàn thiện (~42%):</span>
+                                <span id="res-finish-cost" class="font-semibold text-slate-200">--</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 mt-4 border-t border-dad-600">
+                            <div class="text-xs text-slate-300 mb-1">Tổng kinh phí dự kiến trọn gói:</div>
+                            <div id="res-total-price" class="font-heading font-extrabold text-3xl sm:text-4xl text-amber-400">
+                                1.798.000.000 đ
+                            </div>
+                            <p class="text-[11px] text-slate-300 mt-2 italic leading-relaxed">
+                                * Lưu ý: Đơn giá đã bao gồm miễn phí 100% hồ sơ thiết kế và xin phép xây dựng khi ký hợp đồng thi công trọn gói tại DAD Construction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-dad-600">
+                        <a href="#lien-he" onclick="prefillQuote()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                            <span>Nhận bảng dự toán chi tiết từng hạng mục</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CẢM NHẬN KHÁCH HÀNG / TESTIMONIALS (MỚI BỔ SUNG) -->
+    <section id="cam-nhan" class="py-24 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-3 bg-dad-50 px-3.5 py-1.5 rounded-full border border-dad-200">
+                    <span class="w-2 h-2 rounded-full bg-dad-700"></span>
+                    Khách Hàng Nói Gì Về DAD
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Cảm Nhận Từ Những Ngôi Nhà Đã Bàn Giao
+                </h2>
+                <p class="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
+                    Sự hài lòng và tín nhiệm của các gia chủ tại Đà Nẵng & miền Trung là thước đo chuẩn xác nhất cho chất lượng thi công và cái tâm của DAD Construction®.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group">
+                    <div class="absolute -top-4 right-8 w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-serif text-xl shadow-md">
+                        <i class="fa-solid fa-quote-right text-sm"></i>
+                    </div>
+                    <div>
+                        <!-- Rating Stars -->
+                        <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-xs font-bold text-slate-700 ml-2">5.0 / 5.0</span>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+                            "Khi làm nhà, tôi sợ nhất là phát sinh chi phí và kỹ sư không bám sát hiện trường. Nhưng chọn DAD Construction tôi hoàn toàn yên tâm. Từng mẻ bê tông, đan thép móng cọc đều được kỹ sư gửi hình ảnh và video nghiệm thu chi tiết qua Zalo. Đúng tiến độ, thẩm mỹ vượt kỳ vọng!"
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-100 flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Gia đình Anh Minh" class="w-13 h-13 rounded-full object-cover border-2 border-dad-700">
+                        <div>
+                            <div class="font-heading font-bold text-slate-900 text-base">Anh Nguyễn Văn Minh</div>
+                            <div class="text-xs text-slate-500 font-medium">Chủ đầu tư Biệt thự Núi Thành (380m²)</div>
+                            <div class="text-[11px] text-dad-700 font-semibold mt-0.5">Xây nhà trọn gói chìa khóa trao tay</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group">
+                    <div class="absolute -top-4 right-8 w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-serif text-xl shadow-md">
+                        <i class="fa-solid fa-quote-right text-sm"></i>
+                    </div>
+                    <div>
+                        <!-- Rating Stars -->
+                        <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-xs font-bold text-slate-700 ml-2">5.0 / 5.0</span>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+                            "Gu của tôi là phong cách Indochine truyền thống kết hợp tiện nghi hiện đại. Đội ngũ KTS DAD đã tư vấn rất tinh tế về hướng gió biển Đà Nẵng, cách xử lý chống ẩm và chọn gạch bông cổ điển cực đẹp. Thi công sắc nét, bàn giao nhà dọn dẹp tinh tươm."
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-100 flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Chị Lê Thu Thủy" class="w-13 h-13 rounded-full object-cover border-2 border-dad-700">
+                        <div>
+                            <div class="font-heading font-bold text-slate-900 text-base">Chị Lê Thu Thủy</div>
+                            <div class="text-xs text-slate-500 font-medium">Villa vườn Indochine - Ngũ Hành Sơn</div>
+                            <div class="text-[11px] text-dad-700 font-semibold mt-0.5">Thiết kế & Thi công hoàn thiện</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group">
+                    <div class="absolute -top-4 right-8 w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-serif text-xl shadow-md">
+                        <i class="fa-solid fa-quote-right text-sm"></i>
+                    </div>
+                    <div>
+                        <!-- Rating Stars -->
+                        <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-xs font-bold text-slate-700 ml-2">5.0 / 5.0</span>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+                            "Mặt tiền 5m nhưng kết hợp kinh doanh nên bài toán thông gió và ánh sáng rất khó. Nhờ giải pháp lệch tầng giếng trời của DAD, ngôi nhà luôn sáng sủa, kinh doanh tầng 1 rất thoáng mà các tầng trên gia đình sinh hoạt hoàn toàn biệt lập, riêng tư."
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-100 flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Anh Trần Quốc Tuấn" class="w-13 h-13 rounded-full object-cover border-2 border-dad-700">
+                        <div>
+                            <div class="font-heading font-bold text-slate-900 text-base">Anh Trần Quốc Tuấn</div>
+                            <div class="text-xs text-slate-500 font-medium">Nhà phố 2 mặt tiền (310m²) - Hải Châu</div>
+                            <div class="text-[11px] text-dad-700 font-semibold mt-0.5">Xây nhà trọn gói kết hợp kinh doanh</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Bar / Key Commitments -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm text-center">
+                <div class="p-3">
+                    <div class="font-heading font-extrabold text-2xl sm:text-3xl text-dad-700">100%</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">Bàn giao đúng hạn</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5 hidden sm:block">Theo tiến độ GANTT từng tuần</p>
+                </div>
+                <div class="p-3 border-l border-slate-100">
+                    <div class="font-heading font-extrabold text-2xl sm:text-3xl text-amber-500">0 VNĐ</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">Chi phí phát sinh</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5 hidden sm:block">Cam kết hợp đồng minh bạch</p>
+                </div>
+                <div class="p-3 border-l border-slate-100">
+                    <div class="font-heading font-extrabold text-2xl sm:text-3xl text-dad-700">10 Năm</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">Bảo hành kết cấu</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5 hidden sm:block">Kiểm tra bảo dưỡng định kỳ</p>
+                </div>
+                <div class="p-3 border-l border-slate-100">
+                    <div class="font-heading font-extrabold text-2xl sm:text-3xl text-amber-500">30 Phút</div>
+                    <div class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">Phản hồi khảo sát</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5 hidden sm:block">Kiến trúc sư hỗ trợ tận nơi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÂU HỎI THƯỜNG GẶP / FAQ ACCORDION (MỚI BỔ SUNG) -->
+    <section id="hoi-dap" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-3 bg-dad-50 px-3.5 py-1.5 rounded-full border border-dad-200">
+                    <span class="w-2 h-2 rounded-full bg-dad-700"></span>
+                    Giải Đáp Thắc Mắc
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Câu Hỏi Thường Gặp Về Xây Nhà
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Tổng hợp những thắc mắc phổ biến nhất của gia chủ khi chuẩn bị xây dựng nhà phố, biệt thự.
+                </p>
+            </div>
+
+            <!-- FAQ List (Accordion) -->
+            <div class="space-y-4" id="faq-list">
+                <!-- Item 1 -->
+                <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden transition-all bg-slate-50/60">
+                    <button onclick="toggleFaq(0)" class="faq-btn w-full p-5 sm:p-6 text-left font-heading font-bold text-base sm:text-lg text-slate-900 flex justify-between items-center gap-4 hover:text-dad-700 transition">
+                        <span>1. Chi phí xây nhà trọn gói tại DAD Construction gồm những gì? Có phát sinh không?</span>
+                        <span class="faq-icon w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 text-dad-700 text-xs transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 bg-white">
+                        <p class="mb-3">
+                            Báo giá xây nhà trọn gói (Chìa khóa trao tay) tại DAD Construction là trọn vẹn từ A-Z, bao gồm:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
+                            <li><strong>100% Hồ sơ thiết kế:</strong> Phối cảnh 3D nội - ngoại thất, bản vẽ kết cấu, hệ thống điện nước MEP.</li>
+                            <li><strong>Thủ tục pháp lý:</strong> Miễn phí xin cấp giấy phép xây dựng và hồ sơ hoàn công.</li>
+                            <li><strong>Vật tư thi công:</strong> Vật tư thô đạt chuẩn (Thép Hòa Phát, xi măng Kim Đỉnh/Hà Tiên, cát vàng sông Thu Bồn...) và vật tư hoàn thiện chính hãng.</li>
+                            <li><strong>Nhân công & Giám sát:</strong> Kỹ sư chỉ huy túc trực hiện trường liên tục 100% thời gian thi công.</li>
+                        </ul>
+                        <div class="mt-4 p-3.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-xs sm:text-sm font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-amber-600 text-base shrink-0"></i>
+                            <span>DAD cam kết bằng hợp đồng pháp lý: Tuyệt đối KHÔNG PHÁT SINH dù chỉ 1 đồng ngoài dự toán đã ký duyệt.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden transition-all bg-slate-50/60">
+                    <button onclick="toggleFaq(1)" class="faq-btn w-full p-5 sm:p-6 text-left font-heading font-bold text-base sm:text-lg text-slate-900 flex justify-between items-center gap-4 hover:text-dad-700 transition">
+                        <span>2. Thời gian thi công nhà phố hoặc biệt thự kéo dài trong bao lâu?</span>
+                        <span class="faq-icon w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 text-dad-700 text-xs transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 bg-white">
+                        <p class="mb-2">Thời gian thi công tiêu chuẩn đảm bảo độ ninh kết bê tông và độ khô hoàn thiện của DAD:</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
+                            <li><strong>Nhà phố 2 - 3 tầng:</strong> 3.5 đến 4.5 tháng.</li>
+                            <li><strong>Nhà phố 4 - 5 tầng hoặc có tầng hầm:</strong> 4.5 đến 6 tháng.</li>
+                            <li><strong>Biệt thự & Villa sân vườn (300 - 600m²):</strong> 5.5 đến 7.5 tháng.</li>
+                        </ul>
+                        <p class="mt-3 text-xs sm:text-sm text-slate-600">
+                            DAD lập tiến độ chi tiết theo sơ đồ GANTT từng tuần và có cam kết thưởng/phạt tiến độ rõ ràng trong hợp đồng.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden transition-all bg-slate-50/60">
+                    <button onclick="toggleFaq(2)" class="faq-btn w-full p-5 sm:p-6 text-left font-heading font-bold text-base sm:text-lg text-slate-900 flex justify-between items-center gap-4 hover:text-dad-700 transition">
+                        <span>3. Chủ đầu tư nghiệm thu công trình theo các giai đoạn như thế nào?</span>
+                        <span class="faq-icon w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 text-dad-700 text-xs transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 bg-white">
+                        <p class="mb-2">
+                            DAD áp dụng quy trình <strong>Nghiệm thu 3 bên</strong> (Kỹ sư DAD - Đơn vị giám sát - Chủ nhà) chia thành các mốc rõ ràng:
+                        </p>
+                        <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
+                            <li><strong>Nghiệm thu phần ngầm:</strong> Tim cọc, hố móng, cốt thép đài giằng và bể phốt/bể nước.</li>
+                            <li><strong>Nghiệm thu từng sàn bê tông:</strong> Cốt thép dầm sàn, cốp pha, hệ thống ống điện luồn âm trước khi đổ bê tông.</li>
+                            <li><strong>Nghiệm thu phần xây tô & Chống thấm:</strong> Ngâm thử nước sàn vệ sinh và ban công 48 giờ liên tục.</li>
+                            <li><strong>Nghiệm thu ốp lát & Lắp đặt thiết bị:</strong> Đo độ phẳng cốt nền, đấu nối điện nước, thiết bị vệ sinh.</li>
+                            <li><strong>Bàn giao toàn diện:</strong> Dọn vệ sinh công nghiệp và bàn giao chìa khóa cùng hồ sơ bảo hành.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden transition-all bg-slate-50/60">
+                    <button onclick="toggleFaq(3)" class="faq-btn w-full p-5 sm:p-6 text-left font-heading font-bold text-base sm:text-lg text-slate-900 flex justify-between items-center gap-4 hover:text-dad-700 transition">
+                        <span>4. Chính sách bảo hành và bảo trì sau khi bàn giao của DAD Construction ra sao?</span>
+                        <span class="faq-icon w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 text-dad-700 text-xs transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 bg-white">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-2">
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                                <div class="font-extrabold text-dad-700 text-xl">10 NĂM</div>
+                                <div class="text-xs font-semibold text-slate-800 mt-1">Kết cấu chịu lực</div>
+                                <div class="text-[11px] text-slate-500">Móng, dầm, cột, sàn bê tông</div>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                                <div class="font-extrabold text-amber-500 text-xl">03 NĂM</div>
+                                <div class="text-xs font-semibold text-slate-800 mt-1">Chống thấm dột</div>
+                                <div class="text-[11px] text-slate-500">Mái, ban công, nhà vệ sinh</div>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                                <div class="font-extrabold text-dad-700 text-xl">01 NĂM</div>
+                                <div class="text-xs font-semibold text-slate-800 mt-1">Thiết bị & Hoàn thiện</div>
+                                <div class="text-[11px] text-slate-500">Bảo trì định kỳ 6 tháng/lần</div>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3">
+                            Khi có bất kỳ yêu cầu bảo trì nào, kỹ sư của DAD sẽ có mặt kiểm tra trong vòng <strong>24 giờ</strong> tại khu vực Đà Nẵng & lân cận.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden transition-all bg-slate-50/60">
+                    <button onclick="toggleFaq(4)" class="faq-btn w-full p-5 sm:p-6 text-left font-heading font-bold text-base sm:text-lg text-slate-900 flex justify-between items-center gap-4 hover:text-dad-700 transition">
+                        <span>5. Đợt thanh toán hợp đồng xây dựng được chia như thế nào?</span>
+                        <span class="faq-icon w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 text-dad-700 text-xs transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/80 bg-white">
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            DAD không thu tiền trước khối lượng công việc. Hợp đồng thanh toán được chia nhỏ làm <strong>5 - 7 đợt linh hoạt</strong> gắn liền với từng hạng mục nghiệm thu thực tế:
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-xs sm:text-sm text-slate-600">
+                            <li>Đợt 1: Đặt cọc thiết kế & xin phép xây dựng (Được hoàn lại 100% khi ký HĐ thi công).</li>
+                            <li>Đợt 2: Tập kết máy móc ép cọc và hoàn thành phần móng.</li>
+                            <li>Đợt 3: Đổ bê tông sàn các tầng lầu và sàn mái.</li>
+                            <li>Đợt 4: Hoàn thành xây tường ngăn và trát trong/ngoài.</li>
+                            <li>Đợt 5: Ốp lát gạch, sơn nước và lắp đặt thiết bị.</li>
+                            <li>Đợt 6: Nghiệm thu bàn giao công trình và thanh lý hợp đồng.</li>
+                            <li>Giữ lại 2-5% kinh phí bảo hành theo thỏa thuận trong vòng 12 tháng.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIÊN HỆ & ĐĂNG KÝ TƯ VẤN (RESPONSIVE GRID) -->
+    <section id="lien-he" class="py-24 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+                <!-- Company Info -->
+                <div class="col-span-1 lg:col-span-5 space-y-8">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-dad-700 font-bold text-xs uppercase tracking-widest mb-3 bg-dad-50 px-3.5 py-1.5 rounded-full border border-dad-200">
+                            <span class="w-2 h-2 rounded-full bg-dad-700"></span>
+                            Kết nối với chúng tôi
+                        </div>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                            Bắt Đầu Kiến Tạo Ngôi Nhà Mơ Ước
+                        </h2>
+                        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+                            Đội ngũ Kỹ sư & Kiến trúc sư của <strong>Công ty TNHH Xây dựng và Kiến trúc DAD</strong> luôn sẵn sàng lắng nghe và tư vấn phương án tối ưu nhất cho bạn hoàn toàn miễn phí.
+                        </p>
+                    </div>
+
+                    <!-- Contact Cards with Dynamic Artisan Badges -->
+                    <div class="space-y-4">
+                        {/* Card 1: Enterprise Name */}
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-dad-400/60 hover:bg-dad-50/20 transition-all duration-300 group">
+                            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-dad-800 to-dad-950 p-2.5 flex items-center justify-center shrink-0 shadow-md shadow-dad-950/20 border border-dad-600/40 group-hover:border-amber-400/50 transition-all duration-300">
+                                <div class="absolute inset-0 rounded-2xl bg-amber-400/10 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+                                <svg viewBox="0 0 120 120" class="w-8 h-8 fill-amber-400 group-hover:scale-110 transition-transform duration-500">
+                                    <path d="M60 8 L108 35 L60 62 L12 35 Z M60 22 L32 35 L60 50 L88 35 Z" opacity="0.95" />
+                                    <path d="M10 40 L57 67 L57 114 L10 87 Z M22 58 L22 78 L45 91 L45 71 Z" opacity="0.75" />
+                                    <path d="M63 67 L110 40 L110 87 L63 114 Z M75 71 L75 95 L98 82 L98 58 Z" opacity="0.85" />
+                                </svg>
+                                <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white"></span>
+                                </span>
+                            </div>
+                            <div>
+                                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                                    <span>Tên doanh nghiệp</span>
+                                    <span class="text-[9px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Pháp lý chuẩn</span>
+                                </div>
+                                <div class="font-heading font-bold text-slate-900 text-sm sm:text-base mt-0.5 group-hover:text-dad-700 transition">
+                                    Công ty TNHH Xây dựng và Kiến trúc DAD
+                                </div>
+                                <div class="text-xs text-dad-700 font-medium mt-0.5">
+                                    DAD Construction® - Kiến tạo bền vững, Tạo dựng tương lai
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 2: Hotline / Zalo (Live Pulsing Audio Waves & Ringing Receiver) */}
+                        <a href="tel:0778236311" class="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-lg hover:border-amber-400 hover:bg-amber-50/20 transition-all duration-300 group">
+                            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-2 flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/30 border border-amber-300/60 group-hover:shadow-amber-500/50 transition-all duration-300">
+                                <div class="absolute -inset-1 rounded-2xl bg-amber-400/40 animate-radar-wave"></div>
+                                <div class="relative z-10 w-9 h-9 rounded-xl bg-slate-950 text-amber-400 flex items-center justify-center text-base animate-phone-ring shadow-inner">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full bg-slate-950 border border-amber-400/50 text-[9px] font-black text-amber-400 uppercase tracking-tighter shadow">
+                                    24/7
+                                </span>
+                            </div>
+                            <div>
+                                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                                    <span>Hotline / Zalo tư vấn 24/7</span>
+                                    <span class="text-[9px] text-amber-700 font-bold bg-amber-100 px-1.5 py-0.5 rounded border border-amber-200">Trực tuyến</span>
+                                </div>
+                                <div class="font-heading font-extrabold text-dad-700 text-lg sm:text-xl mt-0.5 group-hover:text-amber-600 transition flex items-center gap-2">
+                                    <span>077 823 6311</span>
+                                    <i class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 transition"></i>
+                                </div>
+                                <div class="text-xs text-slate-500">
+                                    Bấm để gọi trực tiếp cho Kiến trúc sư trưởng
+                                </div>
+                            </div>
+                        </a>
+
+                        {/* Card 3: Office Address (Animated Floating Geo-Beacon & Target Radar) */}
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-sky-400/60 hover:bg-sky-50/20 transition-all duration-300 group">
+                            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-900 via-dad-800 to-dad-950 p-2.5 flex items-center justify-center shrink-0 shadow-md shadow-sky-900/20 border border-sky-500/30 group-hover:border-sky-400/60 transition-all duration-300">
+                                <div class="absolute inset-2 rounded-full border border-sky-400/40 animate-radar-wave"></div>
+                                <div class="relative z-10 animate-float-smooth flex flex-col items-center">
+                                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-400 text-white flex items-center justify-center text-xs font-bold shadow-md shadow-sky-500/30">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <span class="w-3 h-1 rounded-full bg-sky-400/40 blur-[1px] mt-0.5"></span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                                    <span>Địa chỉ văn phòng</span>
+                                    <span class="text-[9px] text-sky-700 font-bold bg-sky-100 px-1.5 py-0.5 rounded border border-sky-200">Trụ sở chính</span>
+                                </div>
+                                <div class="font-heading font-bold text-slate-900 text-sm sm:text-base mt-0.5 group-hover:text-dad-700 transition">
+                                    Xã Núi Thành, TP. Đà Nẵng
+                                </div>
+                                <div class="text-xs text-slate-500">
+                                    Thi công khắp khu vực Đà Nẵng, Núi Thành & miền Trung
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 4: Email Address (Flying Paper Plane & Express Delivery) */}
+                        <a href="mailto:dadcons.arc@gmail.com" class="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-400/60 hover:bg-indigo-50/20 transition-all duration-300 group">
+                            <div class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-950 via-dad-800 to-slate-950 p-2.5 flex items-center justify-center shrink-0 shadow-md shadow-indigo-950/20 border border-indigo-400/30 group-hover:border-indigo-400/60 transition-all duration-300">
+                                <div class="absolute inset-0 rounded-2xl bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+                                <div class="relative z-10 w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-dad-600 text-white flex items-center justify-center text-sm shadow-md group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">
+                                    <i class="fa-solid fa-paper-plane text-xs text-amber-300 transform -rotate-12 group-hover:rotate-0 transition-transform"></i>
+                                </div>
+                                <span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full bg-dad-950 border border-indigo-400/40 text-[9px] font-bold text-slate-200">
+                                    &lt;30m
+                                </span>
+                            </div>
+                            <div>
+                                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                                    <span>Hòm thư điện tử</span>
+                                    <span class="text-[9px] text-indigo-700 font-bold bg-indigo-100 px-1.5 py-0.5 rounded border border-indigo-200">Phản hồi 30p</span>
+                                </div>
+                                <div class="font-heading font-bold text-slate-900 text-sm sm:text-base mt-0.5 group-hover:text-dad-700 transition">
+                                    dadcons.arc@gmail.com
+                                </div>
+                                <div class="text-xs text-slate-500">
+                                    Gửi yêu cầu báo giá hoặc bản vẽ hiện trạng đất
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-span-1 lg:col-span-7">
+                    <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
+                        <h3 class="font-heading font-bold text-2xl text-slate-900 mb-2">Đăng Ký Tư Vấn & Nhận Báo Giá</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-6">Điền thông tin bên dưới, chuyên viên của DAD Construction sẽ liên hệ lại với bạn trong vòng 30 phút.</p>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4 sm:space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Họ và tên của bạn *</label>
+                                    <input type="text" id="form-name" required placeholder="Nhập họ và tên..." class="w-full rounded-xl border border-slate-300 px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/50">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Số điện thoại liên hệ *</label>
+                                    <input type="tel" id="form-phone" required placeholder="VD: 0905 xxx xxx" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/50">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Khu vực xây dựng</label>
+                                    <input type="text" id="form-location" placeholder="VD: Núi Thành, Hải Châu, Sơn Trà..." class="w-full rounded-xl border border-slate-300 px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/50">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Dịch vụ quan tâm</label>
+                                    <select id="form-service" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/50 font-medium">
+                                        <option value="Xây nhà trọn gói">Xây nhà trọn gói (Chìa khóa trao tay)</option>
+                                        <option value="Thiết kế kiến trúc & nội thất">Thiết kế kiến trúc & nội thất</option>
+                                        <option value="Thi công phần thô">Thi công phần thô</option>
+                                        <option value="Cải tạo sửa chữa">Cải tạo & nâng cấp công trình</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Nhu cầu chi tiết (Diện tích đất, số tầng, ngân sách dự kiến...)</label>
+                                <textarea id="form-message" rows="4" placeholder="Chia sẻ thêm về mong muốn ngôi nhà của bạn..." class="w-full rounded-xl border border-slate-300 px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-dad-700 bg-slate-50/50"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-dad-700 hover:bg-dad-800 text-white font-bold py-3.5 sm:py-4 rounded-xl shadow-lg shadow-dad-700/20 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Gửi Yêu Cầu Tư Vấn Ngay</span>
+                            </button>
+                        </form>
+
+                        <!-- Notification Message Box -->
+                        <div id="form-toast" class="hidden mt-5 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5 shrink-0"></i>
+                            <div>
+                                <div class="font-bold text-sm" id="toast-title">Gửi yêu cầu thành công!</div>
+                                <p class="text-xs mt-0.5" id="toast-desc">Cảm ơn bạn đã tin tưởng Công ty TNHH Xây dựng và Kiến trúc DAD. Chúng tôi sẽ liên hệ qua số điện thoại của bạn sớm nhất.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (RESPONSIVE MULTI-COLUMN) -->
+    <footer class="bg-dad-900 text-slate-300 pt-16 pb-12 border-t border-dad-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-dad-800">
+                <!-- Col 1: Brand -->
+                <div class="col-span-1 md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white rounded-xl p-1.5 flex items-center justify-center shrink-0">
+                            <svg viewBox="0 0 120 120" class="w-full h-full fill-dad-700">
+                                <path d="M60 8 L108 35 L60 62 L12 35 Z M60 22 L32 35 L60 50 L88 35 Z" />
+                                <path d="M10 40 L57 67 L57 114 L10 87 Z M22 58 L22 78 L45 91 L45 71 Z" />
+                                <polygon points="18,68 48,85 48,77 18,60" />
+                                <path d="M63 67 L110 40 L110 87 L63 114 Z M75 71 L75 95 L98 82 L98 58 Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-heading font-extrabold text-2xl text-white leading-none">DAD <span class="text-amber-400">CONSTRUCTION</span></div>
+                            <div class="text-xs text-amber-400 font-medium mt-1">Kiến tạo bền vững - Tạo dựng tương lai</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-md">
+                        <strong>Công ty TNHH Xây dựng và Kiến trúc DAD</strong> tự hào là đơn vị uy tín chuyên thiết kế và thi công trọn gói các công trình dân dụng, biệt thự, nhà phố hiện đại với chất lượng kỹ thuật và thẩm mỹ hàng đầu tại Đà Nẵng và miền Trung.
+                    </p>
+                    <div class="pt-2 flex items-center gap-3 text-sm">
+                        <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-dad-800 hover:bg-dad-700 text-white flex items-center justify-center transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://zalo.me/0778236311" target="_blank" class="w-9 h-9 rounded-lg bg-dad-800 hover:bg-dad-700 text-white flex items-center justify-center transition" title="Zalo"><i class="fa-solid fa-comment-dots"></i></a>
+                        <a href="tel:0778236311" class="w-9 h-9 rounded-lg bg-dad-800 hover:bg-dad-700 text-white flex items-center justify-center transition" title="Hotline"><i class="fa-solid fa-phone"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="col-span-1 md:col-span-3 space-y-3">
+                    <h4 class="font-heading font-bold text-white text-base">Danh mục</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#trang-chu" class="hover:text-amber-400 transition">Trang chủ</a></li>
+                        <li><a href="#du-an" class="hover:text-amber-400 transition">Dự án đã thực hiện</a></li>
+                        <li><a href="#dich-vu" class="hover:text-amber-400 transition">Dịch vụ xây nhà trọn gói</a></li>
+                        <li><a href="#quy-trinh" class="hover:text-amber-400 transition">Quy trình thi công</a></li>
+                        <li><a href="#du-toan" class="hover:text-amber-400 transition">Bảng tính chi phí xây dựng</a></li>
+                        <li><a href="#cam-nhan" class="hover:text-amber-400 transition">Cảm nhận khách hàng</a></li>
+                        <li><a href="#hoi-dap" class="hover:text-amber-400 transition">Câu hỏi thường gặp</a></li>
+                        <li><a href="#lien-he" class="hover:text-amber-400 transition">Liên hệ báo giá</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Details -->
+                <div class="col-span-1 md:col-span-4 space-y-3">
+                    <h4 class="font-heading font-bold text-white text-base">Thông tin liên hệ</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-amber-400 mt-1 shrink-0"></i>
+                            <span>Địa chỉ: Xã Núi Thành, TP. Đà Nẵng</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-amber-400 shrink-0"></i>
+                            <a href="tel:0778236311" class="font-bold text-white hover:text-amber-400 transition">077 823 6311</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-amber-400 shrink-0"></i>
+                            <a href="mailto:dadcons.arc@gmail.com" class="hover:text-amber-400 transition">dadcons.arc@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-amber-400 shrink-0"></i>
+                            <span>Giờ làm việc: 7:30 - 18:00 (Thứ 2 - Thứ 7)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4 text-center sm:text-left">
+                <p>© 2026 Công ty TNHH Xây dựng và Kiến trúc DAD. Bảo lưu mọi quyền.</p>
+                <p>Thiết kế tối ưu trải nghiệm người dùng • Tông màu chuẩn nhận diện DAD Construction®</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING ACTION BUTTONS (GỌI NHANH, ZALO, BACK TO TOP) -->
+    <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+        <!-- Back To Top Button -->
+        <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden w-11 h-11 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white shadow-xl transition-all duration-300 items-center justify-center text-sm backdrop-blur-sm transform hover:-translate-y-1" title="Lên đầu trang">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+
+        <!-- Zalo Quick Chat Button -->
+        <a href="https://zalo.me/0778236311" target="_blank" class="flex items-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 rounded-full shadow-xl transition transform hover:scale-105" title="Chat qua Zalo">
+            <span class="w-7 h-7 rounded-full bg-white text-blue-600 flex items-center justify-center font-bold text-xs">
+                <i class="fa-solid fa-comment-dots"></i>
+            </span>
+            <span class="text-xs sm:text-sm font-semibold pr-1">Chat Zalo</span>
+        </a>
+
+        <!-- Hotline Call Button -->
+        <a href="tel:0778236311" class="flex items-center gap-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-3 rounded-full shadow-2xl transition transform hover:scale-105 animate-pulse" title="Gọi Hotline 077 823 6311">
+            <span class="w-8 h-8 rounded-full bg-slate-950 text-amber-400 flex items-center justify-center">
+                <i class="fa-solid fa-phone"></i>
+            </span>
+            <span class="text-sm font-bold pr-1">077 823 6311</span>
+        </a>
+    </div>
+
+    <!-- COPY ESTIMATE TOAST -->
+    <div id="copy-toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 hidden bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-2.5 transition-all">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span>Đã sao chép bảng tính dự toán vào clipboard!</span>
+    </div>
+
+    <!-- PROJECT DETAIL MODAL (RESPONSIVE WITH PREV/NEXT NAVIGATION) -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-100 relative animate-fadeIn">
+            <!-- Close Button -->
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center transition" title="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-12">
+                <!-- Modal Image Gallery -->
+                <div class="col-span-1 md:col-span-7 bg-slate-900 relative min-h-[260px] sm:min-h-[420px] flex items-center justify-center overflow-hidden">
+                    <img id="modal-img" src="" alt="Chi tiết dự án" class="w-full h-full object-cover">
+                    <div id="modal-badge" class="absolute top-4 left-4 bg-dad-700 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow"></div>
+                    <div id="modal-counter" class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm text-slate-200 text-xs px-2.5 py-1 rounded-md font-semibold">
+                        1 / 9
+                    </div>
+
+                    <!-- Next & Prev Arrow Floating Buttons (Nằm gọn bên trong khung ảnh, không lấn vào khung thông tin) -->
+                    <button onclick="navigateProject(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950 text-white flex items-center justify-center shadow-lg transition backdrop-blur-sm" title="Dự án trước">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <button onclick="navigateProject(1)" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950 text-white flex items-center justify-center shadow-lg transition backdrop-blur-sm" title="Dự án kế tiếp">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Details -->
+                <div class="col-span-1 md:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 id="modal-title" class="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 mb-2 leading-snug"></h3>
+                        <p id="modal-location" class="text-xs font-semibold text-dad-700 mb-3 flex items-center gap-1.5"></p>
+                        <p id="modal-desc" class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5"></p>
+
+                        <div class="bg-slate-50 rounded-2xl p-4 space-y-2 border border-slate-100 text-xs">
+                            <div class="flex justify-between py-1 border-b border-slate-200/60">
+                                <span class="text-slate-500">Chủ đầu tư:</span>
+                                <span id="modal-client" class="font-bold text-slate-800"></span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-200/60">
+                                <span class="text-slate-500">Diện tích sàn:</span>
+                                <span id="modal-area" class="font-bold text-slate-800"></span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-200/60">
+                                <span class="text-slate-500">Quy mô:</span>
+                                <span id="modal-scale" class="font-bold text-slate-800"></span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-500">Hạng mục thực hiện:</span>
+                                <span id="modal-scope" class="font-bold text-dad-700"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+                        <button onclick="requestQuoteForProject()" class="w-full bg-dad-700 hover:bg-dad-800 text-white font-bold py-3 rounded-xl text-center text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <span>Yêu cầu báo giá mẫu tương tự</span>
+                        </button>
+                        
+                        <!-- Prev/Next controls (Nút phụ tiện ích bên dưới) -->
+                        <div class="flex justify-between items-center gap-2 pt-2 text-xs">
+                            <button onclick="navigateProject(-1)" class="flex-1 py-2 sm:py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-chevron-left text-[11px]"></i> <span>Dự án trước</span>
+                            </button>
+                            <button onclick="navigateProject(1)" class="flex-1 py-2 sm:py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition flex items-center justify-center gap-1.5">
+                                <span>Dự án sau</span> <i class="fa-solid fa-chevron-right text-[11px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Danh sách các dự án tiêu biểu của DAD Construction
+        const projectsData = [
+            {
+                id: 1,
+                title: "Biệt Thự Nghỉ Dưỡng Núi Thành",
+                category: "biet-thu",
+                categoryName: "Biệt thự & Villa",
+                location: "Xã Núi Thành, TP. Đà Nẵng",
+                client: "Gia đình Anh Minh",
+                area: "380 m²",
+                scale: "3 Tầng + Hồ bơi sân vườn",
+                scope: "Thiết kế & Thi công trọn gói",
+                year: "2026",
+                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+                desc: "Công trình biệt thự hiện đại lấy cảm hứng từ thiên nhiên nhiệt đới, sử dụng hệ cửa kính lớn kết nối trực tiếp với hồ bơi và sân vườn, giúp không gian luôn tràn ngập ánh sáng và gió biển."
+            },
+            {
+                id: 2,
+                title: "Nhà Phố Hiện Đại 3 Tầng Lệch Tầng",
+                category: "nha-pho",
+                categoryName: "Nhà phố hiện đại",
+                location: "Quận Hải Châu, TP. Đà Nẵng",
+                client: "Anh Hoàng - Chị Lan",
+                area: "260 m²",
+                scale: "3 Tầng + 1 Tum",
+                scope: "Xây nhà trọn gói",
+                year: "2025",
+                image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
+                desc: "Giải pháp kiến trúc lệch tầng thông minh kết hợp giếng trời trung tâm giúp ngôi nhà ống mặt tiền 5m luôn thông thoáng, tối ưu hóa công năng cho gia đình 3 thế hệ."
+            },
+            {
+                id: 3,
+                title: "Villa Vườn Phong Cách Indochine",
+                category: "biet-thu",
+                categoryName: "Biệt thự & Villa",
+                location: "Quận Ngũ Hành Sơn, TP. Đà Nẵng",
+                client: "Chị Thu Thủy",
+                area: "450 m²",
+                scale: "2 Tầng mái Nhật",
+                scope: "Thiết kế & Thi công hoàn thiện",
+                year: "2025",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+                desc: "Sự giao thoa tinh tế giữa nét hoài cổ Á Đông và tiện nghi hiện đại. Hệ mái Nhật bề thế kết hợp gam màu trắng kem và gỗ tự nhiên sang trọng."
+            },
+            {
+                id: 4,
+                title: "Nhà Phố 2 Mặt Tiền Kết Hợp Kinh Doanh",
+                category: "nha-pho",
+                categoryName: "Nhà phố hiện đại",
+                location: "Xã Núi Thành, TP. Đà Nẵng",
+                client: "Anh Quốc Tuấn",
+                area: "310 m²",
+                scale: "3.5 Tầng",
+                scope: "Chìa khóa trao tay",
+                year: "2026",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80",
+                desc: "Tận dụng lợi thế 2 mặt tiền, DAD thiết kế tầng 1 làm showroom kinh doanh thông suốt, các tầng trên là không gian sinh hoạt gia đình biệt lập và đẳng cấp."
+            },
+            {
+                id: 5,
+                title: "Không Gian Nội Thất Penthouse Luxury",
+                category: "noi-that",
+                categoryName: "Nội thất cao cấp",
+                location: "Quận Sơn Trà, TP. Đà Nẵng",
+                client: "Anh Đức Huy",
+                area: "210 m²",
+                scale: "Căn hộ thông tầng",
+                scope: "Thiết kế & Thi công nội thất",
+                year: "2026",
+                image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80",
+                desc: "Sử dụng vật liệu gỗ Óc Chó (Walnut) kết hợp đá Marble tự nhiên và hệ thống đèn chiếu sáng thông minh, tôn vinh gu thẩm mỹ thượng lưu của gia chủ."
+            },
+            {
+                id: 6,
+                title: "Tổ Hợp Cafe & Văn Phòng Kiến Trúc Xanh",
+                category: "thuong-mai",
+                categoryName: "Thương mại & Cafe",
+                location: "TP. Đà Nẵng",
+                client: "Công ty Đối tác",
+                area: "520 m²",
+                scale: "4 Tầng kết cấu thép & bê tông",
+                scope: "Thiết kế & Thi công trọn gói",
+                year: "2025",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+                desc: "Tòa nhà thương mại sử dụng mặt dựng lam chắn nắng hiện đại, tiết kiệm năng lượng và tạo điểm nhấn kiến trúc nổi bật trên tuyến phố chính."
+            },
+            {
+                id: 7,
+                title: "Nhà Phố Tropical Lam Gỗ Độc Đáo",
+                category: "nha-pho",
+                categoryName: "Nhà phố hiện đại",
+                location: "Quận Cẩm Lệ, TP. Đà Nẵng",
+                client: "Gia đình Anh Khoa",
+                area: "240 m²",
+                scale: "3 Tầng",
+                scope: "Xây nhà trọn gói",
+                year: "2025",
+                image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80",
+                desc: "Mặt tiền hướng Tây được xử lý khéo léo bằng hệ gạch bông gió và lam gỗ nhựa ngoài trời kết hợp bồn cây xanh tự động tưới ở mỗi ban công."
+            },
+            {
+                id: 8,
+                title: "Biệt Thự Phố Hiện Đại Mặt Tiền 8m",
+                category: "biet-thu",
+                categoryName: "Biệt thự & Villa",
+                location: "Xã Núi Thành, TP. Đà Nẵng",
+                client: "Chú Hòa",
+                area: "340 m²",
+                scale: "3 Tầng + Sân thượng",
+                scope: "Thiết kế & Thi công trọn gói",
+                year: "2026",
+                image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
+                desc: "Hình khối kiến trúc mạnh mẽ, khỏe khoắn với các mảng đua ban công táo bạo, thể hiện đúng tinh thần bền vững của DAD Construction."
+            },
+            {
+                id: 9,
+                title: "Nội Thất Nhà Phố Phong Cách Wabi Sabi",
+                category: "noi-that",
+                categoryName: "Nội thất cao cấp",
+                location: "Quận Liên Chiểu, TP. Đà Nẵng",
+                client: "Chị Minh Phương",
+                area: "180 m²",
+                scale: "3 Phòng ngủ + Phòng khách bếp",
+                scope: "Hoàn thiện nội thất",
+                year: "2026",
+                image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80",
+                desc: "Tối giản, mộc mạc và bình yên với những đường cong mềm mại, tông màu be ấm áp cùng ánh sáng tự nhiên dịu nhẹ."
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentProjectModalIndex = 0;
+
+        // Render danh sách dự án (Lọc theo danh mục & tìm kiếm từ khóa)
+        function renderProjects(filter = 'all', search = '') {
+            currentFilter = filter;
+            currentSearch = search.trim().toLowerCase();
+
+            const grid = document.getElementById('projects-grid');
+            if (!grid) return;
+
+            const filtered = projectsData.filter(item => {
+                const matchCategory = (filter === 'all') || (item.category === filter);
+                const matchSearch = (!currentSearch) || 
+                    item.title.toLowerCase().includes(currentSearch) ||
+                    item.location.toLowerCase().includes(currentSearch) ||
+                    item.categoryName.toLowerCase().includes(currentSearch) ||
+                    item.scope.toLowerCase().includes(currentSearch);
+                return matchCategory && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-2xl">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-700 text-lg">Không tìm thấy công trình phù hợp</h4>
+                        <p class="text-slate-500 text-sm mt-1">Vui lòng thử tìm kiếm bằng từ khóa khác hoặc bấm hiển thị tất cả.</p>
+                        <button onclick="resetProjectFilters()" class="mt-4 px-4 py-2 bg-dad-700 text-white rounded-xl text-xs font-semibold hover:bg-dad-800 transition">
+                            Xem tất cả 9 công trình
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(project => `
+                <div class="project-card group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer" onclick="openProjectModal(${project.id})">
+                    <div>
+                        <div class="relative overflow-hidden aspect-[4/3] bg-slate-200">
+                            <img src="${project.image}" 
+                                 alt="${project.title}" 
+                                 class="project-img w-full h-full object-cover transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/800x600/0f3b68/ffffff?text=DAD+Project'">
+                            
+                            <!-- Hover Overlay -->
+                            <div class="project-overlay absolute inset-0 bg-dad-900/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="bg-white text-dad-800 font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Xem chi tiết công trình
+                                </span>
+                            </div>
+
+                            <!-- Category Tag -->
+                            <div class="absolute top-3 left-3 bg-dad-700/90 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-lg">
+                                ${project.categoryName}
+                            </div>
+                            <div class="absolute bottom-3 right-3 bg-slate-900/75 backdrop-blur-sm text-amber-400 text-[11px] font-bold px-2.5 py-1 rounded-md">
+                                <i class="fa-solid fa-ruler-combined mr-1"></i> ${project.area}
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">
+                                <i class="fa-solid fa-location-dot text-dad-600"></i>
+                                <span>${project.location}</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-slate-900 group-hover:text-dad-700 transition mb-2">
+                                ${project.title}
+                            </h3>
+                            <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">
+                                ${project.desc}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="font-semibold text-dad-700">${project.scope}</span>
+                        <span class="text-slate-400 font-medium">Hoàn thành ${project.year}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Xử lý tìm kiếm dự án tức thời
+        function handleProjectSearch(keyword) {
+            renderProjects(currentFilter, keyword);
+        }
+
+        // Đặt lại bộ lọc dự án
+        function resetProjectFilters() {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-dad-700', 'text-white', 'shadow-md', 'shadow-dad-700/20');
+                b.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+            if (allBtn) {
+                allBtn.classList.remove('bg-slate-100', 'text-slate-700');
+                allBtn.classList.add('bg-dad-700', 'text-white', 'shadow-md', 'shadow-dad-700/20');
+            }
+            const searchInput = document.getElementById('project-search-input');
+            if (searchInput) searchInput.value = '';
+            renderProjects('all', '');
+        }
+
+        // Xử lý sự kiện click các nút lọc danh mục
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-dad-700', 'text-white', 'shadow-md', 'shadow-dad-700/20');
+                    b.classList.add('bg-slate-100', 'text-slate-700');
+                });
+                this.classList.remove('bg-slate-100', 'text-slate-700');
+                this.classList.add('bg-dad-700', 'text-white', 'shadow-md', 'shadow-dad-700/20');
+
+                const filterValue = this.getAttribute('data-filter');
+                renderProjects(filterValue, currentSearch);
+            });
+        });
+
+        // Mở Modal chi tiết dự án
+        function openProjectModal(id) {
+            const index = projectsData.findIndex(p => p.id === id);
+            if (index === -1) return;
+            currentProjectModalIndex = index;
+            populateModalData(projectsData[index]);
+
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Điền dữ liệu vào Modal
+        function populateModalData(project) {
+            document.getElementById('modal-img').src = project.image;
+            document.getElementById('modal-badge').textContent = project.categoryName;
+            document.getElementById('modal-counter').textContent = `${currentProjectModalIndex + 1} / ${projectsData.length}`;
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-location').innerHTML = `<i class="fa-solid fa-location-dot text-amber-500"></i> ${project.location}`;
+            document.getElementById('modal-desc').textContent = project.desc;
+            document.getElementById('modal-client').textContent = project.client;
+            document.getElementById('modal-area').textContent = project.area;
+            document.getElementById('modal-scale').textContent = project.scale;
+            document.getElementById('modal-scope').textContent = project.scope;
+        }
+
+        // Chuyển tiếp / lùi dự án trong modal
+        function navigateProject(direction) {
+            currentProjectModalIndex = (currentProjectModalIndex + direction + projectsData.length) % projectsData.length;
+            populateModalData(projectsData[currentProjectModalIndex]);
+        }
+
+        // Yêu cầu báo giá trực tiếp từ modal dự án
+        function requestQuoteForProject() {
+            const project = projectsData[currentProjectModalIndex];
+            closeProjectModal();
+            const msgBox = document.getElementById('form-message');
+            if (msgBox) {
+                msgBox.value = `Tôi rất quan tâm đến mẫu công trình: ${project.title} (${project.categoryName} - Diện tích ${project.area} tại ${project.location}). Xin DAD tư vấn phương án tương tự cho nhu cầu của tôi.`;
+            }
+            const serviceSelect = document.getElementById('form-service');
+            if (serviceSelect) {
+                if (project.category === 'noi-that') {
+                    serviceSelect.value = 'Thiết kế kiến trúc & nội thất';
+                } else {
+                    serviceSelect.value = 'Xây nhà trọn gói';
+                }
+            }
+            const contactSection = document.getElementById('lien-he');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const nameInput = document.getElementById('form-name');
+                    if (nameInput) nameInput.focus();
+                }, 600);
+            }
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            if (modal) modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Đóng modal khi click ra ngoài backdrop
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeProjectModal();
+        });
+
+        // Bắt phím ESC và phím mũi tên trái/phải để duyệt modal
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('project-modal');
+            if (!modal || modal.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeProjectModal();
+            } else if (e.key === 'ArrowLeft') {
+                navigateProject(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateProject(1);
+            }
+        });
+
+        // Accordion FAQ toggle
+        function toggleFaq(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach((item, i) => {
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('.faq-icon');
+                if (i === index) {
+                    const isClosed = content.classList.contains('hidden');
+                    if (isClosed) {
+                        content.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                        item.classList.add('border-dad-700/50', 'bg-white');
+                        item.classList.remove('bg-slate-50/60');
+                    } else {
+                        content.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                        item.classList.remove('border-dad-700/50', 'bg-white');
+                        item.classList.add('bg-slate-50/60');
+                    }
+                }
+            });
+        }
+
+        // Toggle Mobile Navigation Menu Drawer
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (!menu) return;
+
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                if (icon) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            } else {
+                menu.classList.add('hidden');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+
+        // Công cụ tính toán chi phí xây dựng chính xác
+        function calculateCost() {
+            const typeMultiplier = parseFloat(document.getElementById('calc-type')?.value) || 1;
+            const unitPrice = parseFloat(document.getElementById('calc-package')?.value) || 6200000;
+            const area = parseFloat(document.getElementById('calc-area')?.value) || 100;
+            const floors = parseInt(document.getElementById('calc-floors')?.value) || 2;
+            const foundationCoeff = parseFloat(document.getElementById('calc-foundation')?.value) || 0.4;
+            const roofCoeff = parseFloat(document.getElementById('calc-roof')?.value) || 0.5;
+            const basementCoeff = parseFloat(document.getElementById('calc-basement')?.value) || 0;
+
+            const foundationArea = area * foundationCoeff;
+            const floorsArea = area * floors;
+            const roofArea = area * roofCoeff;
+            const basementArea = area * basementCoeff;
+
+            const totalConvertedArea = Math.round(foundationArea + floorsArea + roofArea + basementArea);
+            const totalCost = Math.round(totalConvertedArea * unitPrice * typeMultiplier);
+
+            // Bóc tách cơ cấu chi phí
+            const roughCost = Math.round(totalCost * 0.58);
+            const finishCost = totalCost - roughCost;
+
+            // Cập nhật DOM
+            const elFoundation = document.getElementById('res-foundation-area');
+            if (elFoundation) elFoundation.textContent = `${Math.round(foundationArea)} m²`;
+
+            const elFloors = document.getElementById('res-floors-area');
+            if (elFloors) elFloors.textContent = `${Math.round(floorsArea)} m²`;
+
+            const elRoof = document.getElementById('res-roof-area');
+            if (elRoof) elRoof.textContent = `${Math.round(roofArea)} m²`;
+
+            const rowBasement = document.getElementById('row-basement');
+            const elBasement = document.getElementById('res-basement-area');
+            if (rowBasement && elBasement) {
+                if (basementCoeff > 0) {
+                    rowBasement.classList.remove('hidden');
+                    elBasement.textContent = `${Math.round(basementArea)} m²`;
+                } else {
+                    rowBasement.classList.add('hidden');
+                }
+            }
+
+            const elTotalArea = document.getElementById('res-total-area');
+            if (elTotalArea) elTotalArea.textContent = `${totalConvertedArea} m²`;
+
+            const elRough = document.getElementById('res-rough-cost');
+            if (elRough) elRough.textContent = `${roughCost.toLocaleString('vi-VN')} đ`;
+
+            const elFinish = document.getElementById('res-finish-cost');
+            if (elFinish) elFinish.textContent = `${finishCost.toLocaleString('vi-VN')} đ`;
+
+            const elTotalPrice = document.getElementById('res-total-price');
+            if (elTotalPrice) elTotalPrice.textContent = `${totalCost.toLocaleString('vi-VN')} đ`;
+        }
+
+        // Sao chép kết quả bảng tính vào Clipboard
+        function copyEstimateToClipboard() {
+            const area = document.getElementById('calc-area')?.value || '100';
+            const floors = document.getElementById('calc-floors')?.value || '2';
+            const totalArea = document.getElementById('res-total-area')?.textContent || '';
+            const totalPrice = document.getElementById('res-total-price')?.textContent || '';
+            const roughCost = document.getElementById('res-rough-cost')?.textContent || '';
+            const finishCost = document.getElementById('res-finish-cost')?.textContent || '';
+
+            const summaryText = `BẢNG DỰ TOÁN CHI PHÍ XÂY DỰNG - DAD CONSTRUCTION®\n` +
+                `------------------------------------\n` +
+                `• Diện tích sàn: ${area} m² x ${floors} tầng\n` +
+                `• Tổng diện tích quy đổi: ${totalArea}\n` +
+                `• Dự toán phần thô & nhân công (~58%): ${roughCost}\n` +
+                `• Dự toán phần hoàn thiện (~42%): ${finishCost}\n` +
+                `• TỔNG DỰ TOÁN TRỌN GÓI: ${totalPrice}\n` +
+                `------------------------------------\n` +
+                `Hotline tư vấn DAD Construction: 077 823 6311 (Núi Thành, TP. Đà Nẵng)`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(summaryText).then(() => {
+                    showCopyToast();
+                }).catch(() => {
+                    fallbackCopy(summaryText);
+                });
+            } else {
+                fallbackCopy(summaryText);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const tempArea = document.createElement('textarea');
+            tempArea.value = text;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+            showCopyToast();
+        }
+
+        function showCopyToast() {
+            const toast = document.getElementById('copy-toast');
+            if (!toast) return;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Điền thông tin dự toán xuống form liên hệ
+        function prefillQuote() {
+            const area = document.getElementById('calc-area')?.value || '100';
+            const floors = document.getElementById('calc-floors')?.value || '2';
+            const totalArea = document.getElementById('res-total-area')?.textContent || '';
+            const estPrice = document.getElementById('res-total-price')?.textContent || '';
+            const msgBox = document.getElementById('form-message');
+            if (msgBox) {
+                msgBox.value = `Tôi vừa tính thử chi phí xây dựng trên website: Diện tích sàn ${area}m² x ${floors} tầng (Quy đổi: ${totalArea}). Dự kiến ngân sách trọn gói khoảng ${estPrice}. Nhờ DAD Construction tư vấn phương án và chi tiết vật tư giúp tôi.`;
+            }
+            const contactSection = document.getElementById('lien-he');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const nameInput = document.getElementById('form-name');
+                    if (nameInput) nameInput.focus();
+                }, 600);
+            }
+        }
+
+        // Xử lý gửi form liên hệ (Xác thực SĐT Việt Nam & lưu LocalStorage)
+        function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('form-name')?.value.trim();
+            const phone = document.getElementById('form-phone')?.value.trim();
+            const location = document.getElementById('form-location')?.value.trim() || 'Chưa cung cấp';
+            const service = document.getElementById('form-service')?.value || 'Xây nhà trọn gói';
+            const message = document.getElementById('form-message')?.value.trim() || '';
+
+            // Kiểm tra số điện thoại chuẩn Việt Nam (10 chữ số, đầu số hợp lệ)
+            const phoneRegex = /^(0|84)(3|5|7|8|9)[0-9]{8}$/;
+            const cleanPhone = phone.replace(/[\s\.\-\(\)]/g, '');
+            if (!phoneRegex.test(cleanPhone)) {
+                alert('Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 chữ số, VD: 0905 123 456) để DAD liên hệ tư vấn.');
+                document.getElementById('form-phone')?.focus();
+                return;
+            }
+
+            // Lưu trữ thông tin yêu cầu vào localStorage
+            const inquiry = {
+                id: 'DAD-' + Date.now(),
+                name,
+                phone: cleanPhone,
+                location,
+                service,
+                message,
+                createdAt: new Date().toLocaleString('vi-VN')
+            };
+
+            try {
+                const stored = JSON.parse(localStorage.getItem('dad_inquiries') || '[]');
+                stored.push(inquiry);
+                localStorage.setItem('dad_inquiries', JSON.stringify(stored));
+            } catch (err) {
+                console.warn('Lỗi lưu trữ local inquiry:', err);
+            }
+
+            // Hiển thị thông báo thành công
+            const toast = document.getElementById('form-toast');
+            const toastTitle = document.getElementById('toast-title');
+            const toastDesc = document.getElementById('toast-desc');
+            if (toast) {
+                if (toastTitle) toastTitle.textContent = `Cảm ơn ${name} đã gửi yêu cầu!`;
+                if (toastDesc) toastDesc.textContent = `Chuyên viên của DAD Construction sẽ liên hệ qua số ${cleanPhone} trong vòng 30 phút để hỗ trợ bạn.`;
+                toast.classList.remove('hidden');
+            }
+
+            document.getElementById('contact-form')?.reset();
+            setTimeout(() => {
+                if (toast) toast.classList.add('hidden');
+            }, 8000);
+        }
+
+        // Xử lý hiển thị nút Back-To-Top khi cuộn trang
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('back-to-top');
+            if (!btn) return;
+            if (window.scrollY > 350) {
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            } else {
+                btn.classList.add('hidden');
+                btn.classList.remove('flex');
+            }
+        });
+
+        // Khởi tạo trang
+        window.onload = function() {
+            renderProjects('all');
+            calculateCost();
+        };
+    </script>
+</body>
+</html>
