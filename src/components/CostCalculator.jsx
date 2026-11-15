@@ -85,10 +85,10 @@ export default function CostCalculator({ onPrefillQuote }) {
         {/* Calculator Main Box */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-amber-200/70 grid grid-cols-1 lg:grid-cols-12">
           {/* Controls Input (7 Cols) */}
-          <div className="lg:col-span-7 p-6 sm:p-10 space-y-5">
-            <h3 className="font-heading font-bold text-xl text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center justify-between">
+          <div className="lg:col-span-7 p-5 sm:p-8 lg:p-10 space-y-5">
+            <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center justify-between">
               <span>Thông Số Công Trình Của Bạn</span>
-              <span className="text-xs font-normal text-slate-400">Đơn giá cập nhật 2026</span>
+              <span className="text-xs font-normal text-slate-400">Đơn giá 2026</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -199,7 +199,7 @@ export default function CostCalculator({ onPrefillQuote }) {
           </div>
 
           {/* Calculator Result Panel (5 Cols) */}
-          <div className="lg:col-span-5 bg-dad-800 text-white p-6 sm:p-10 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-dad-800 text-white p-5 sm:p-8 lg:p-10 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-dad-600 pb-4 mb-5">
                 <span className="text-xs uppercase tracking-wider text-slate-300 font-bold">Bảng bóc tách diện tích</span>
@@ -226,7 +226,7 @@ export default function CostCalculator({ onPrefillQuote }) {
                   </div>
                 )}
                 <div className="flex justify-between items-center pt-2 border-t border-dad-700 text-slate-200 font-semibold">
-                  <span>Tổng diện tích xây dựng quy đổi:</span>
+                  <span>Tổng diện tích quy đổi:</span>
                   <span className="font-extrabold text-amber-400 text-base">{calculations.totalConvertedArea} m²</span>
                 </div>
               </div>
@@ -235,18 +235,18 @@ export default function CostCalculator({ onPrefillQuote }) {
               <div className="mt-5 p-4 rounded-2xl bg-dad-900/60 border border-dad-700/60 space-y-2">
                 <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Phân bổ ngân sách dự kiến</div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-slate-300">• Phần thô & nhân công (~58%):</span>
+                  <span className="text-slate-300">• Thô & nhân công (~58%):</span>
                   <span className="font-semibold text-slate-200">{calculations.roughCost.toLocaleString('vi-VN')} đ</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-slate-300">• Phần hoàn thiện (~42%):</span>
+                  <span className="text-slate-300">• Hoàn thiện (~42%):</span>
                   <span className="font-semibold text-slate-200">{calculations.finishCost.toLocaleString('vi-VN')} đ</span>
                 </div>
               </div>
 
               <div className="pt-4 mt-4 border-t border-dad-600">
                 <div className="text-xs text-slate-300 mb-1">Tổng kinh phí dự kiến trọn gói:</div>
-                <div className="font-heading font-extrabold text-3xl sm:text-4xl text-amber-400">
+                <div className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-amber-400 break-words">
                   {calculations.totalCost.toLocaleString('vi-VN')} đ
                 </div>
                 <p className="text-[11px] text-slate-300 mt-2 italic leading-relaxed">

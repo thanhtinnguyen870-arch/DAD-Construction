@@ -6,6 +6,8 @@ export default function Hero() {
   const featuredProjects = projectsData.slice(0, 6);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   // Tự động xoay chuyển 3D từ phải sang trái liên tục mỗi 3.6 giây
   useEffect(() => {
@@ -17,6 +19,31 @@ export default function Hero() {
 
     return () => clearInterval(timer);
   }, [isPaused, featuredProjects.length]);
+
+  // Hỗ trợ vuốt chạm cảm ứng mượt mà trên điện thoại
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    setIsPaused(false);
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 45) {
+      // Vuốt sang trái -> chuyển ảnh kế tiếp
+      setActiveIndex((prev) => (prev + 1) % featuredProjects.length);
+    } else if (distance < -45) {
+      // Vuốt sang phải -> chuyển ảnh trước
+      setActiveIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   // Tính toán vị trí 3D cho từng card (chạy từ phải sang trái)
   const getCardStyle = (index) => {
@@ -36,8 +63,8 @@ export default function Hero() {
     } else if (diff === 1) {
       // CARD KẾ TIẾP (ĐANG TIẾN VÀO TỪ BÊN PHẢI VỚI GÓC NGHIÊNG 3D)
       return {
-        transform: 'translate3d(24%, 0, -90px) scale(0.9) rotateY(-18deg)',
-        opacity: 0.5,
+        transform: 'translate3d(18%, 0, -80px) scale(0.92) rotateY(-16deg)',
+        opacity: 0.55,
         zIndex: 20,
         pointerEvents: 'none',
         filter: 'brightness(0.8) blur(0.5px)',
@@ -46,8 +73,8 @@ export default function Hero() {
     } else if (diff === total - 1) {
       // CARD VỪA RỜI ĐI (LÙI DẦN VỀ BÊN TRÁI VỚI CHIỀU SÂU 3D)
       return {
-        transform: 'translate3d(-24%, 0, -90px) scale(0.9) rotateY(18deg)',
-        opacity: 0.3,
+        transform: 'translate3d(-18%, 0, -80px) scale(0.92) rotateY(16deg)',
+        opacity: 0.35,
         zIndex: 10,
         pointerEvents: 'none',
         filter: 'brightness(0.65) blur(1px)',
@@ -56,7 +83,7 @@ export default function Hero() {
     } else {
       // CÁC CARD ẨN NẰM PHÍA SAU
       return {
-        transform: 'translate3d(50%, 0, -200px) scale(0.75) rotateY(-30deg)',
+        transform: 'translate3d(40%, 0, -180px) scale(0.75) rotateY(-25deg)',
         opacity: 0,
         zIndex: 0,
         pointerEvents: 'none',
@@ -91,26 +118,26 @@ export default function Hero() {
               Công ty TNHH Xây dựng và Kiến trúc DAD
             </div>
 
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
               Kiến Tạo <span className="text-amber-600">Bền Vững</span><br />
               Tạo Dựng Tương Lai
             </h1>
 
-            <p className="text-slate-700 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+            <p className="text-slate-700 text-sm sm:text-base lg:text-lg max-w-xl font-normal leading-relaxed">
               Tổng thầu thiết kế & thi công xây dựng trọn gói biệt thự, nhà phố hiện đại tại <strong className="text-slate-900 font-semibold">Đà Nẵng & Núi Thành</strong>. Minh bạch vật tư, chuẩn mực kỹ thuật, bàn giao đúng cam kết.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <a 
                 href="#du-toan" 
-                className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl shadow-lg shadow-amber-500/25 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base"
+                className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl shadow-lg shadow-amber-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <span>Tính chi phí xây dựng</span>
                 <i className="fa-solid fa-calculator"></i>
               </a>
               <a 
                 href="#du-an" 
-                className="bg-white hover:bg-slate-50 text-dad-700 font-bold px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl border border-slate-200 shadow-md shadow-slate-200/60 transition flex items-center gap-2 text-sm sm:text-base"
+                className="bg-white hover:bg-slate-50 text-dad-700 font-bold px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl border border-slate-200 shadow-md shadow-slate-200/60 transition flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <span>Xem 9 dự án tiêu biểu</span>
                 <i className="fa-solid fa-arrow-right"></i>
@@ -139,7 +166,10 @@ export default function Hero() {
             <div 
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
-              className="relative w-full max-w-[460px] mx-auto perspective-1200"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="relative w-full max-w-[460px] mx-auto perspective-1200 cursor-grab active:cursor-grabbing"
             >
               {/* Vầng sáng Ambient Glow vàng ấm dịu phía sau */}
               <div className="absolute -inset-4 bg-gradient-to-r from-amber-400/25 via-amber-200/35 to-yellow-300/25 rounded-3xl blur-2xl -z-10 pointer-events-none"></div>

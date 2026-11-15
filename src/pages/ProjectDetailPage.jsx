@@ -11,6 +11,8 @@ export default function ProjectDetailPage() {
   const project = projectsData.find(p => p.id === parseInt(id));
 
   const [activeImgIndex, setActiveImgIndex] = useState(0);
+  const [galleryTouchStart, setGalleryTouchStart] = useState(null);
+  const [galleryTouchEnd, setGalleryTouchEnd] = useState(null);
   const [inquiryName, setInquiryName] = useState('');
   const [inquiryPhone, setInquiryPhone] = useState('');
   const [inquiryMessage, setInquiryMessage] = useState('');
@@ -200,8 +202,20 @@ export default function ProjectDetailPage() {
               </div>
             </div>
 
-            {/* Big Main Image Container */}
-            <div className="relative aspect-[16/9] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-slate-950 group">
+            {/* Big Main Image Container với hỗ trợ vuốt chạm trên Mobile */}
+            <div 
+              onTouchStart={(e) => setGalleryTouchStart(e.targetTouches[0].clientX)}
+              onTouchMove={(e) => setGalleryTouchEnd(e.targetTouches[0].clientX)}
+              onTouchEnd={() => {
+                if (!galleryTouchStart || !galleryTouchEnd) return;
+                const diff = galleryTouchStart - galleryTouchEnd;
+                if (diff > 40) nextImage();
+                else if (diff < -40) prevImage();
+                setGalleryTouchStart(null);
+                setGalleryTouchEnd(null);
+              }}
+              className="relative aspect-[16/9] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-slate-950 group select-none cursor-grab active:cursor-grabbing"
+            >
               <img 
                 src={gallery[activeImgIndex]?.url} 
                 alt={gallery[activeImgIndex]?.caption || project.title} 
@@ -211,7 +225,7 @@ export default function ProjectDetailPage() {
               {/* Navigation Arrow: PREVIOUS */}
               <button 
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center text-lg sm:text-xl shadow-2xl transition-transform hover:scale-110 backdrop-blur-md border border-white/20"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center text-sm sm:text-lg shadow-2xl transition-transform hover:scale-110 backdrop-blur-md border border-white/20"
                 title="Ảnh trước (Bấm phím mũi tên trái)"
               >
                 <i className="fa-solid fa-chevron-left"></i>
@@ -220,17 +234,17 @@ export default function ProjectDetailPage() {
               {/* Navigation Arrow: NEXT */}
               <button 
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center text-lg sm:text-xl shadow-2xl transition-transform hover:scale-110 backdrop-blur-md border border-white/20"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center text-sm sm:text-lg shadow-2xl transition-transform hover:scale-110 backdrop-blur-md border border-white/20"
                 title="Ảnh sau (Bấm phím mũi tên phải)"
               >
                 <i className="fa-solid fa-chevron-right"></i>
               </button>
 
               {/* Image Caption Overlay */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 sm:p-6 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-3.5 sm:p-6 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-1.5">
                 <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-amber-400">Góc nhìn công trình</div>
-                  <div className="font-heading font-bold text-base sm:text-lg">
+                  <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-400">Góc nhìn công trình</div>
+                  <div className="font-heading font-bold text-sm sm:text-lg line-clamp-1">
                     {gallery[activeImgIndex]?.caption || project.title}
                   </div>
                 </div>
@@ -240,15 +254,15 @@ export default function ProjectDetailPage() {
               </div>
             </div>
 
-            {/* Thumbnail Strip */}
-            <div className="grid grid-cols-4 sm:grid-cols-6 gap-2.5 sm:gap-3.5 mt-4">
+            {/* Thumbnail Strip: Cuộn ngang mượt mà trên Mobile */}
+            <div className="flex overflow-x-auto pb-2 gap-2 sm:grid sm:grid-cols-6 sm:overflow-visible mt-3.5">
               {gallery.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImgIndex(idx)}
-                  className={`relative aspect-[4/3] rounded-xl overflow-hidden transition-all duration-200 ${
+                  className={`shrink-0 w-20 sm:w-auto relative aspect-[4/3] rounded-xl overflow-hidden transition-all duration-200 ${
                     activeImgIndex === idx 
-                      ? 'ring-4 ring-amber-500 scale-95 shadow-md' 
+                      ? 'ring-3 ring-amber-500 scale-95 shadow-md' 
                       : 'opacity-70 hover:opacity-100'
                   }`}
                 >
@@ -316,37 +330,37 @@ export default function ProjectDetailPage() {
                 </h3>
 
                 <div className="divide-y divide-slate-100 text-xs sm:text-sm">
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Chủ đầu tư:</span>
-                    <span className="font-bold text-slate-900">{project.client}</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Chủ đầu tư:</span>
+                    <span className="font-bold text-slate-900 text-right">{project.client}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Địa điểm:</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Địa điểm:</span>
                     <span className="font-semibold text-slate-800 text-right">{project.location}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Diện tích xây dựng:</span>
-                    <span className="font-bold text-dad-700">{project.area}</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Diện tích xây dựng:</span>
+                    <span className="font-bold text-dad-700 text-right">{project.area}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Quy mô công trình:</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Quy mô công trình:</span>
                     <span className="font-semibold text-slate-900 text-right">{project.scale}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Phong cách kiến trúc:</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Phong cách kiến trúc:</span>
                     <span className="font-semibold text-slate-800 text-right">{project.style || 'Hiện đại'}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Thời gian thi công:</span>
-                    <span className="font-semibold text-slate-800">{project.constructionTime || '5.0 tháng'}</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Thời gian thi công:</span>
+                    <span className="font-semibold text-slate-800 text-right">{project.constructionTime || '5.0 tháng'}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Hạng mục thực hiện:</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Hạng mục thực hiện:</span>
                     <span className="font-bold text-dad-700 text-right">{project.scope}</span>
                   </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Đơn vị tổng thầu:</span>
-                    <span className="font-bold text-amber-600">DAD Construction®</span>
+                  <div className="py-2.5 flex justify-between items-start gap-4">
+                    <span className="text-slate-500 font-medium shrink-0">Đơn vị tổng thầu:</span>
+                    <span className="font-bold text-amber-600 text-right">DAD Construction®</span>
                   </div>
                 </div>
 
